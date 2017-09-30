@@ -14,7 +14,8 @@ echo "<head>";
 		}
 	echo "</title>";
 	echo "<link rel='icon' type='image/ico' href='../img/favicon.ico'/>";
-	echo "<link href='./css/normalize.css' type='text/css' rel='stylesheet'>";
+	echo "<link href='../css/normalize.css' type='text/css' rel='stylesheet'>";
 	echo "<link href='./css/main_desingn.css' type='text/css' rel='stylesheet'>";
+	//	echo "<link href='./bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>";
 echo "</head>";
 ?>

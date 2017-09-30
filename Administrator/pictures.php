@@ -5,6 +5,7 @@
 
 session_start();
 echo "<!DOCTYPE html>";
+echo "<html lang='en'>";
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
@@ -101,6 +102,7 @@ echo "<!DOCTYPE html>";
 		else{
 			header("Location: index.php");
 		}
+		include 'scripts.php';		
 	echo "</body>";
 echo "</html>";
 ?>

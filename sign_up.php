@@ -3,10 +3,6 @@
 /*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
 /*--------------------------------------------------------------------------------------*/
 
-include 'database_connection.php';
-include 'functions.php';
-include 'head.php';
-include 'header.php';
 if (isset($_REQUEST['Enviar'])){
 	$usuario=$_REQUEST['usuario'];
 	$nombre=$_REQUEST['nombre'];
@@ -45,31 +41,40 @@ if (isset($_REQUEST['Enviar'])){
 	}
 }
 else{
-	echo "<div class='container_sign_up'>";
-		echo "<a href='index.php'><div class='sign_up'>";
-			echo "Inciar sesión";
-		echo "</div></a>";
-	echo "</div>";
-	echo "<div class='formulario_inicio_sesion'>";	
-		echo "<form action='sign_up.php'>";
-			echo "REGÍSTRATE"."<br><br>";
-			echo "<fieldset>";
-				echo "<legend>Datos personales</legend>";
-				echo "Nombre*:<br><input type='text' name='nombre' placeholder='nombre' required><br><br>";
-				echo "Apellidos:<br><input type='text' name='apellidos' placeholder='apellidos'><br><br>";
-				echo "Email*:<br><input type='text' name='email' placeholder='email' pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' required><br><br>";
-				echo "Teléfono:<br><input type='number' name='telefono' placeholder='teléfono'><br><br>";
-				echo "Dirección:<br><input type='text' name='direccion' placeholder='dirección'><br><br>";
-			echo "</fieldset>";
-			echo "<fieldset>";
-				echo "<legend>Datos de la cuenta</legend>";
-				echo "Usuario*:<br><input type='text' name='usuario' placeholder='nombre de usuario' required><br><br>";
-				echo "Contraseña*:<br><input type='password' name='pass' placeholder='contraseña' pattern='[a-zA-Z0-9_]{5,16}' required><br><br>";
-				echo "Repita la contraseña*:<br><input type='password' name='pass2' placeholder='contraseña' required><br><br>";
-			echo "</fieldset><br><br>";
-			echo "<input class='boton' type='submit' name='Enviar' value='sign_up'><br><br>";
-			echo "* Campos obligatorios";
-		echo "</form>";
-	echo "</div>";
+	echo "<!DOCTYPE html>";
+	echo "<html lang='en'>";
+		include 'database_connection.php';
+		include 'functions.php';
+		include 'head.php';
+		echo "<body>";
+			include 'header.php';
+			echo "<div class='container_sign_up'>";
+				echo "<a href='index.php'><div class='sign_up'>";
+					echo "Inciar sesión";
+				echo "</div></a>";
+			echo "</div>";
+			echo "<div class='formulario_inicio_sesion'>";	
+				echo "<form action='sign_up.php'>";
+					echo "REGÍSTRATE"."<br><br>";
+					echo "<fieldset>";
+						echo "<legend>Datos personales</legend>";
+						echo "Nombre*:<br><input type='text' name='nombre' placeholder='nombre' required><br><br>";
+						echo "Apellidos:<br><input type='text' name='apellidos' placeholder='apellidos'><br><br>";
+						echo "Email*:<br><input type='text' name='email' placeholder='email' pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' required><br><br>";
+						echo "Teléfono:<br><input type='number' name='telefono' placeholder='teléfono'><br><br>";
+						echo "Dirección:<br><input type='text' name='direccion' placeholder='dirección'><br><br>";
+					echo "</fieldset>";
+					echo "<fieldset>";
+						echo "<legend>Datos de la cuenta</legend>";
+						echo "Usuario*:<br><input type='text' name='usuario' placeholder='nombre de usuario' required><br><br>";
+						echo "Contraseña*:<br><input type='password' name='pass' placeholder='contraseña' pattern='[a-zA-Z0-9_]{5,16}' required><br><br>";
+						echo "Repita la contraseña*:<br><input type='password' name='pass2' placeholder='contraseña' required><br><br>";
+					echo "</fieldset><br><br>";
+					echo "<input class='boton' type='submit' name='Enviar' value='sign_up'><br><br>";
+					echo "* Campos obligatorios";
+				echo "</form>";
+			echo "</div>";
+		echo "</body>";
+	echo "</html>";
 }
 ?>

@@ -51,6 +51,7 @@ echo "<html lang='en'>";
 				echo "<a href='index.php'>volver a intentarlo</a>";
 			echo "</div>";
 		}
+	include 'scripts.php';
 	echo "</body>";
 echo "</html>";
 ?>

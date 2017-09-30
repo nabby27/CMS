@@ -87,5 +87,6 @@ session_start();
 			}
 			header("Location: index.php");
 		echo "</body>";
+		include 'scripts.php';
 	echo "</html>";
 ?>
