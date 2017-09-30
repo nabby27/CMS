@@ -1,0 +1,8 @@
+PASOS PARA PROBAR EL PROYECTO
+1-Instalar wamp, xampp o mamp para tener un servidor local 
+2-Copiar la carpeta "CMS" en el sitio de trabajo del servido que hayas instalado (en wamp C:/wamp/www, en xampp C:/xampp/htdocs, en mamp C:/mamp/htdocs)
+3-Introducir en un navegador la url "localhost" y entrar en PhPMyAdmin
+4-Copiar la estructura de la base de datos en ls pestaña SQL (la estructura se encuentra en la carpeta base de datos)
+5-Introducir los datos de prueba que se encuentran en la misma carpeta, de la misma manera que con la estructura
+6-Entrar a las diferentes paginas (localhost/CMS) (localhost/CMS/Administrador)
+7-El usuario con privilegios es pepito24 contraseña 12345

@@ -1,0 +1,479 @@
+/*--------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/
+/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
+/*--------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/
+
+.boton2{
+	border-radius: 15px;
+	background-color: white;
+	width: 30%;
+	margin-left: 35%;
+}
+.boton2:hover{
+	border-radius: 15px;
+	background-color: #d2ecf9;
+	width: 30%;
+	margin-left: 35%;
+}
+.boton2 a{
+	text-decoration: none;
+	color: black;
+}
+.boton2 a:hover{
+	text-decoration: none;
+}
+
+table{
+	text-align: center;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.par{
+	background-color: #808080;
+	color: black;
+}
+
+.impar{
+	background-color: #B7B7B7;
+	color: black;
+}
+
+.formulario_inicio_sesion .boton{
+	border-radius: 15px;
+	background: #d2ecf9;
+	color:#253b6e;
+}
+
+.formulario_inicio_sesion .boton:hover{
+	border-radius: 15px;
+	background: #1f5f8b;
+	color:#d2ecf9;
+}
+
+body{
+	background: #253b6e;
+	color: #d2ecf9;
+}
+
+.cabecera{
+	height: 125px;
+	right: 0px;
+	position: relative;
+	width: 100%;
+	background: #253b6e;
+}
+
+.cabecera .nombre_empresa a{
+	text-decoration: none;
+	color: white;
+}
+
+.cabecera .nombre_empresa{
+	bottom: 20%;
+	font-size: 300%;
+	height: 50%;
+	margin-left: 26%;
+	margin-bottom: 90px;
+	position: absolute;
+	text-align: center;
+	text-transform: uppercase;
+	width: 50%;
+}
+
+.cabecera .logo_empresa{
+	background: blue;
+	bottom: 0px;
+	height: 100px;
+	margin: 1%;
+	position: absolute;
+	width: 100px;
+	left: 1%;
+	text-decoration: none;
+}
+
+.cabecera .sesion{
+	background: #1891ac;
+	color:  #253b6e;
+	position: absolute;
+	right: 1%;
+	top: 20px;
+	text-align: center;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+.cabecera .sesion a{
+	text-decoration: none;
+	color: #253b6e;
+}
+
+.cabecera .sesion:hover{
+	background-color:#d2ecf9;
+}
+
+body .formulario_inicio_sesion {
+	background: #d2ecf9;
+	color: #253b6e;
+	text-align: center;
+	padding: 15px;
+	margin-left: 40%;
+	margin-top:100px;
+	width: 20%;
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+}
+
+body .formulario_empresa {
+	background: #d2ecf9;
+	color: #253b6e;
+	text-align: center;
+	padding: 15px;
+	margin-left: 10%;
+	margin-top:100px;
+	width: 80%;
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+}
+
+body .registrarse{
+	background: #d2ecf9;
+	color: #253b6e;
+	text-align: center;
+	padding: 15px;
+	margin-left: 45%;
+	margin-top:50px;
+	width: 10%;
+	border-radius: 15px;
+	display: inline-block;
+	position: relative;
+}
+
+body .registrarse:hover{
+	background-color:#1891ac;
+}
+
+body .registrarse a{
+	color: #253b6e;
+	text-decoration: none;
+}
+
+nav{
+	margin-top: 50px;
+	margin-bottom: 5px;
+	padding: 0px;
+	text-align: center;
+	background: #253b6e;
+}
+
+nav ul{
+	margin: 0px;
+	padding: 0px;
+	height: 50px;
+	border-radius: 15px;
+}
+
+nav ul li{
+	float:left;
+	width: 20%;
+	text-decoration:none;
+	color:#253b6e;
+	margin-left: 20%;
+	display: inline-block;
+	text-align: center;
+	text-transform: uppercase;
+	border-radius: 15px;
+	padding: 5px;
+	position: relative;
+}
+
+nav ul li a{
+	background-color: #1891ac;
+	color:#253b6e;
+	text-decoration:none;
+	padding:10px 12px;
+	display:block;
+	border-radius: 15px;
+}
+
+nav ul li a:hover{
+	background-color:#d2ecf9;
+	border-radius: 15px;
+}
+
+.seccion_subcategorias{
+	width: 100%;
+	height: 50px;
+	float:left;
+	margin-top: 20px;
+}
+
+.subcategorias {
+	float:left;
+	width: 20%;
+	margin-top: 50px;
+	background-color: #1891ac;
+	text-decoration:none;
+	color:#253b6e;
+	margin-left: 40%;
+	display: inline-block;
+	text-align: center;
+	text-transform: uppercase;
+	border-radius: 15px;
+	padding: 5px;
+	position: relative;
+}
+
+.subcategorias:hover{
+	background-color:#d2ecf9;
+}
+
+.subcategorias a{
+	color:#253b6e;
+	text-decoration:none;
+}
+
+body .titulo{
+	top: 20px;
+	color: white;
+	margin-bottom: 20px;
+	font-size: 300%;
+	margin-left: 26%;
+	position: absolute;
+	text-align: center;
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+	width: 50%;
+}
+
+.seccion_general{
+	float:left;
+	display: inline-block;
+	margin-bottom: 0%;
+	margin-left: 30%;
+	margin-top: 20px;
+	position: relative;
+	width: 40%;
+	padding: 10px;
+	background-color: #1891ac;
+	border-radius: 15px;
+}
+
+.seccion_general .seccion_imagen{
+	display: inline-block;
+	margin-left: 10%;
+	margin-top: 30px;
+	width: 80%;
+}
+.seccion_general .seccion_nombre{
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 10%;
+	width: 80%;
+	font-size: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	background-color: #1891ac;
+	color: #253b6e;
+}
+
+.seccion_general .seccion_nombre a{
+	color: #253b6e;
+	text-decoration: none;
+}
+
+.seccion_general .seccion_nombre a:hover{
+	color: #d2ecf9;
+	background-color:#1f5f8b;
+	border-radius: 15px;
+	padding: 5px;
+}
+
+.seccion_general .seccion_descripcion{
+	color: #1f5f8b;
+	padding: 5px;
+}
+.seccion_fotos{
+	background: #1891ac;
+	display: inline-block;
+	margin-left: 10%;
+	margin-top: 5%;
+	position: relative;
+	width: 30%;
+	border-radius: 15px;
+	padding: 10px;
+	float:left;
+}
+
+.seccion_fotos .nombre{
+	background: #1f5f8b;
+	display: inline-block;
+	font-size: 70px;
+	text-align: center;
+	height: 100px;
+	margin-left: 10%;
+	padding: 3px;
+	width: 80%;
+	color: #1891ac;
+	border-radius: 15px;
+}
+
+.seccion_enlaces{
+	background: #1891ac;
+	display: inline-block;
+	margin-left: 20%;
+	float:left;
+	margin-top: 5%;
+	position: relative;
+	width: 30%;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+.seccion_enlaces .nombre{
+	background: #1f5f8b;
+	font-size: 50px;
+	text-align: center;
+	height: 100px;
+	margin-left: 10%;
+	padding: 3px;
+	width: 80%;
+	color: #1891ac;
+	border-radius: 15px;
+}
+.seccion_fotos .foto{
+	background: black;
+	display: inline-block;
+	height: 100px;
+	margin-left: 2%;
+	margin-top: 2%;
+	width: 100px;
+}
+.seccion_enlaces .enlaces{
+	background: #1891ac;
+	margin-left: 5%;
+
+	position: relative;
+	width: 45%;
+	border-radius: 15px;
+}
+
+body .formulario_articulos {
+	background: #d2ecf9;
+	color: #253b6e;
+	position: absolute;
+	top: 200px;
+	text-align: center;
+	padding: 15px;
+	left: 30%;
+	right: 30%;
+	width: 40%;
+	border-radius: 15px;
+	margin-top: 100px;
+	display: inline-block;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../../fonts/icomoon.eot?9tgyuz');
+  src:  url('../../fonts/icomoon.eot?9tgyuz#iefix') format('embedded-opentype'),
+    url('../../fonts/icomoon.ttf?9tgyuz') format('truetype'),
+    url('../../fonts/icomoon.woff?9tgyuz') format('woff'),
+    url('../../fonts/icomoon.svg?9tgyuz#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-basura:before {
+	font-family: 'icomoon';
+	content: "\e9ad";
+	color: white;
+}
+
+.papelera {
+	margin-top: 57px;
+	margin-right: 25%;
+	margin-left: 5%;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.papelera a{
+	text-decoration: none;
+}
+
+.papelera2 {
+	margin-top: 10px;
+	margin-right: 25%;
+	margin-left: 25%;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.papelera2 a{
+	text-decoration: none;
+}
+
+.icon-pencil2:before {
+	font-family: 'icomoon';
+	content: "\e905";
+	color: white;
+}
+
+.lapiz {
+	margin-left: -19%;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+.lapiz a{
+	text-decoration: none;
+}
+
+.seccion_fotos_formulario{
+	background: #1891ac;
+	display: inline-block;
+	margin-left: 10%;
+	margin-top: 5%;
+	position: relative;
+	width: 80%;
+	border-radius: 15px;
+	padding: 10px;
+	float:left;
+}
+.foto_formulario{
+	background: #253b6e;
+	display: inline-block;
+	margin-left: 5%;
+	margin-top: 2%;
+	padding: 10px;
+	width: 25%;
+	text-align: center;
+	border-radius: 15px; 
+}
+
+.foto_formulario23{
+	background: #253b6e;
+	display: inline-block;
+	margin-left: 25%;
+	margin-top: 2%;
+	padding: 10px;
+	width: 50%;
+	text-align: center;
+	border-radius: 15px; 
+}
+
+body .nombre_seccion{
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	font-size: 50px;
+}

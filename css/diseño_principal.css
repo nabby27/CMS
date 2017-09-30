@@ -1,0 +1,392 @@
+/*--------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/
+/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
+/*--------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/
+
+/*PALETA DE AZULES*/
+/* #ecfffb/*
+/* #b4f1f1*/
+/* #2d767f*/
+/* #1e6262*/
+
+/* #d2ecf9/*
+/* #1891ac*/
+/* #1f5f8b*/
+/* #253b6e*/
+
+/*PALETA DE GRISES*/
+/* #bdc3c7/*
+/* #ecf0f1*/
+/* #34495e*/
+/* #2c3e50*/
+
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+ 
+#full-screen-background-image {
+    z-index: -999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.formulario_inicio_sesion .boton{
+	border-radius: 15px;
+	background: #000000CC;
+	color: white;
+}
+
+.formulario_inicio_sesion .boton:hover{
+	border-radius: 15px;
+	background: #FF0000;
+	color: white;
+}
+
+body{
+	background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+}
+
+.cabecera{
+	height: 125px;
+	right: 0px;
+	position: relative;
+	width: 100%;
+	background: purple;
+}
+
+.cabecera .nombre_empresa{
+	bottom: 20%;
+	font-size: 300%;
+	height: 50%;
+	margin-left: 26%;
+	margin-bottom: 90px;
+	position: absolute;
+	text-align: center;
+	text-transform: uppercase;
+	width: 50%;
+}
+
+.cabecera .nombre_empresa a{
+	text-decoration: none;
+	color: #FF0000CC;
+}
+
+.cabecera .logo_empresa{
+	bottom: 0px;
+	height: 100px;
+	margin: 1%;
+	position: absolute;
+	width: 100px;
+	left: 1%;
+	text-decoration: none;
+	background-color: black;
+}
+
+.cabecera .sesion{
+	background: #FF0000CC;
+	color:  white;
+	position: absolute;
+	right: 1%;
+	top: 20px;
+	text-align: center;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+.cabecera .sesion a{
+	text-decoration: none;
+	color: white;
+}
+
+.cabecera .sesion a:hover{
+	color: #000000CC;
+}
+
+body .formulario_inicio_sesion {
+	background: #000000CC;
+	color: white;
+	text-align: center;
+	padding: 15px;
+	margin-left: 40%;
+	margin-top:100px;
+	width: 20%;
+	border-radius: 15px;
+	display: inline-block;
+}
+
+body .formulario_inicio_sesion a{
+	color: #FF0000;
+}
+
+.container_registrarse{
+	margin-left: 45%;
+	margin-top:50px;
+	width: 10%;
+}
+.container_registrarse .registrarse{
+	width: 100%;
+	display: inline-block;
+	background: #000000CC;
+	color: white;
+	text-align: center;
+	padding: 15px;
+	border-radius: 15px;
+}
+
+body .registrarse:hover{
+	background-color: #FF0000CC;
+}
+
+body .registrarse a{
+	color: white;
+	text-decoration: none;
+}
+
+nav{
+	padding: 0px;
+	text-align: center;
+	background-color: #F7F7F7CC;
+}
+
+nav ul{
+	margin: 0px;
+	padding: 0px;
+	border-radius: 15px;
+}
+
+nav ul li{
+	background: #FFFFFFCC;
+	margin: 2px;
+	display: inline-block;
+	height: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	width: 19%;
+	border-radius: 15px;
+}
+
+nav ul li a{
+	color: #000000;
+	font-size: 100%;
+	text-decoration:none;
+	padding:10px 12px;
+	display:block;
+	border-radius: 15px;
+}
+
+nav ul li a:hover{
+	color: #FF0000;
+	background-color:#000000CC;
+	border-radius: 15px;
+}
+
+.seccion_subcategorias{
+	background-color:#F7F7F7CC;
+	width: 100%;
+	float:left;
+	margin-top: 1px;
+}
+
+
+#pulsado{
+	background-color:#000000CC;
+	border-radius: 15px;
+}
+
+#pulsado a{
+	color: #FF0000;
+}
+
+.subcategorias-pulsado{
+	border-radius: 15px;
+	font-size: 90%;
+	color: #000000;
+	background-color:#000000CC;
+	display: inline-block;
+	float:left;
+	margin: 1px;
+	margin-left: 11.75%;
+	margin-right: 11.75%;
+	margin-top: 10px;
+	margin-bottom: 10px; 
+	padding: 5px;
+	text-align: center;
+	text-decoration:none;
+	text-transform: uppercase;
+	width: 9%;
+}
+
+.subcategorias-pulsado{
+		color: #FF0000;
+}
+
+.seccion_subcategorias .subcategorias{
+	border-radius: 15px;
+	font-size: 90%;
+	color: #000000;
+	background-color: #FFFFFFCC;
+	display: inline-block;
+	float:left;
+	margin: 1px;
+	margin-left: 11%;
+	margin-right: 11%;
+	margin-top: 10px;
+	margin-bottom: 10px; 
+	padding: 5px;
+	text-align: center;
+	text-decoration:none;
+	text-transform: uppercase;
+	width: 10%;
+}
+
+.seccion_subcategorias .subcategorias:hover{
+	background-color: #000000CC;
+	color: #FF0000;
+}
+
+.seccion_general{
+	background-color: yellow;
+	float:left;
+	display: inline-block;
+	margin-bottom: 0%;
+	margin-left: 45.5%;
+	margin-top: 20px;
+	position: relative;
+	width: 50%;
+	background-color: #FFFFFFCC;
+	border-radius: 15px;
+	padding: 10px; 
+}
+
+.general_foto{
+	float: left;
+	display: inline-block;
+	width: 70%;
+	margin-left: 0px;
+}
+
+.seccion_general .seccion_imagen{
+	display: inline-block;
+	margin-left: 10%;
+	margin-top: 30px;
+	width: 80%;
+}
+.seccion_general .seccion_nombre{
+	display: inline-block;
+	margin-top: 20px;
+	font-size: 20px;
+	margin-bottom: 20px;
+	margin-left: 10%;
+	width: 80%;
+	font-size: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	background-color: #000000CC
+	border-radius: 15px;
+	font-size: 20px;
+}
+
+.seccion_general a .seccion_nombre {
+	color: #000000;
+	text-decoration: none;
+}
+
+.seccion_general a:hover .seccion_nombre {
+	color: #d2ecf9;
+	background-color: #FF0000CC;
+	border-radius: 15px;
+}
+
+.seccion_general .seccion_descripcion{
+	color: #000000;
+	padding: 5px;
+	margin-top: 15px;
+	font-size: 20px;
+	padding-left: 65px;
+	padding-right: 65px;
+}
+
+.seccion_fotos{
+	background: #FFFFFFCC;
+	display: inline-block;
+	margin-left: 44%;
+	margin-top: 5%;
+	position: relative;
+	width: 55%;
+	border-radius: 15px;
+	float:left;
+
+}
+
+.seccion_enlaces{
+	background: #FFFFFFCC;
+	display: inline-block;
+	float:left;
+	margin-left: 10px;
+	width: 25%;
+	position: relative;
+	margin-top: 20px;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+.seccion_fotos .foto{
+	display: inline-block;
+	width: 20%;
+	padding: 6%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.seccion_enlaces .enlaces{
+	margin-left: 5%;
+	font-size: 20px;
+	height: 30px;
+	width: 80%;
+	position: relative;
+	border-radius: 15px;
+}
+
+.seccion_enlaces .enlaces a{
+	color: #000000;
+	text-decoration: none;
+}
+
+.seccion_enlaces .enlaces a:hover{
+	color: #FF0000;
+	border-radius: 15px;
+}
+
+.container_foto{
+	background-color: #FFFFFFCC;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 70px;
+	position: absolute;
+	border-radius: 15px;
+}
+.foto_individual{
+	width: 80%;
+	margin: 20px;
+	margin-left: 10%;
+	text-align: center;
+	position: relative;
+}
+
+.foto_descripcion{
+	width: 80%;
+	margin: 20px;
+	margin-left: 10%;
+	left: 10%;
+	font-size: 20px;
+}
