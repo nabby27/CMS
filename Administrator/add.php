@@ -1,18 +1,13 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			if (isset($_REQUEST['nombrec'])){
@@ -24,13 +19,13 @@ echo "<!DOCTYPE html>";
 				if ($result=mysqli_query($link, $cond)){
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Registro insertado correctamente<br>";
-						echo "<a href='categorias.php'>ATRAS</a>";
+						echo "<a href='categories.php'>ATRAS</a>";
 					echo "</div>";
 				}
 				else{
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Fallo al insertar el registro<br>";
-						echo "<a href='categorias.php?nombrea=a'>ATRAS</a>";
+						echo "<a href='categories.php?nombrea=a'>ATRAS</a>";
 					echo "</div>";
 				}
 			}
@@ -52,13 +47,13 @@ echo "<!DOCTYPE html>";
 					if ($result=mysqli_query($link, $cond)){
 						echo "<div class='formulario_inicio_sesion'>";
 							echo "Registro insertado correctamente<br>";
-							echo "<a href='articulos.php'>ATRAS</a>";
+							echo "<a href='articles.php'>ATRAS</a>";
 						echo "</div>";
 					}
 					else{
 						echo "<div class='formulario_inicio_sesion'>";
 							echo "Fallo al insertar el registro<br>";
-							echo "<a href='articulos.php?nombrea=a'>ATRAS</a>";
+							echo "<a href='articles.php?nombrea=a'>ATRAS</a>";
 						echo "</div>";
 					}
 				}

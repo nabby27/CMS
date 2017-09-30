@@ -1,10 +1,14 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
 if (isset($_SESSION['s_admin'])){
-	header("Location: principal.php");
+	header("Location: main.php");
 }
 else{
-	include 'inicio_conjunto.php';
+	include 'database_connection.php';
 	include 'head.php';
 	include 'header.php';
 	if (isset($_REQUEST['Enviar'])){
@@ -13,7 +17,7 @@ else{
 		$result = mysqli_query($link, "SELECT * FROM cms_usuarios where (id_usuario='$usu' or email='$usu') and contraseña='$pass' and id_tipo=1");
 		if ($row = mysqli_fetch_assoc($result)){
 			$_SESSION['s_admin']=$row['nombre'];
-			header("Location: principal.php");
+			header("Location: main.php");
 		}
 		else{
 			echo "<div class='formulario_inicio_sesion'>";

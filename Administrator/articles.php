@@ -1,20 +1,14 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 	echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			if (isset($_REQUEST['enviar'])){
@@ -36,13 +30,13 @@ echo "<!DOCTYPE html>";
 				if ($result = mysqli_query($link, $cond)){
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Actualizacion exitosa<br>";
-						echo "<a href='articulos.php'>ATRAS</a>";
+						echo "<a href='articles.php'>ATRAS</a>";
 					echo "</div>";
 				}
 				else{
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Actualizacion fallida<br>";
-						echo "<a href='articulos.php?nombrea=a'>ATRAS</a>";
+						echo "<a href='articles.php?nombrea=a'>ATRAS</a>";
 					echo "</div>";
 				}
 			}				
@@ -51,10 +45,10 @@ echo "<!DOCTYPE html>";
 					$id_articulo=$_REQUEST['id_articulo'];
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='principal.php'>INICIO</a></li>";
-							echo "<li><a href='fotos.php?id_articulo=$id_articulo'>FOTOS</a></li>";
-							echo "<li><a href='articulos.php'>ATRAS</a></li>";
-							echo "<li><a href='enlaces.php?id_articulo=$id_articulo'>ENLACES</a></li>";
+							echo "<li><a href='main.php'>INICIO</a></li>";
+							echo "<li><a href='pictures.php?id_articulo=$id_articulo'>FOTOS</a></li>";
+							echo "<li><a href='articles.php'>ATRAS</a></li>";
+							echo "<li><a href='links.php?id_articulo=$id_articulo'>ENLACES</a></li>";
 
 						echo "</ul>";
 					echo "</nav>";
@@ -63,7 +57,7 @@ echo "<!DOCTYPE html>";
 				elseif(isset($_REQUEST['nombrea'])){
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='principal.php'>INICIO</a></li>";
+							echo "<li><a href='main.php'>INICIO</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					$result_max=mysqli_query($link, "SELECT max(id_articulo) as max from cms_articulo");
@@ -74,7 +68,7 @@ echo "<!DOCTYPE html>";
 					$cond_categoria="SELECT * from cms_categoria";
 					$result_categoria= mysqli_query($link, $cond_categoria);
 					$añadir="añadir";
-					echo "<form action='anadir.php?nombrea=".$añadir."' method='POST' class='formulario_articulos' id='form_art' enctype='multipart/form-data'>"; 
+					echo "<form action='add.php?nombrea=".$añadir."' method='POST' class='formulario_articulos' id='form_art' enctype='multipart/form-data'>"; 
 						echo "Nombre: <br><br><input type='text' name='nombre'><br><br>";
 						echo "Descripcion: <br><br><textarea name='descripcion' form='form_art' rows='15' cols='50'></textarea><br><br>";
 						echo "Foto principal:<br><br><input type='file' name='foto'><br><br>";
@@ -102,21 +96,21 @@ echo "<!DOCTYPE html>";
 					$a="";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='principal.php'>INICIO</a></li>";
-							echo "<li><a href='articulos.php?nombrea=".$a."'>AÑADIR</a></li>";
+							echo "<li><a href='main.php'>INICIO</a></li>";
+							echo "<li><a href='articles.php?nombrea=".$a."'>AÑADIR</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
-						echo "<a href='articulos.php?id_articulo=".$row['id_articulo']."'><div class='subcategorias' class='boton'>";
+						echo "<a href='articles.php?id_articulo=".$row['id_articulo']."'><div class='subcategorias' class='boton'>";
 							echo $row['nombre'];
 						echo "</div></a>";
 						echo "<div class='papelera'>";
-							echo "<a width='0px' href='borrar.php?id_articulo=".$row['id_articulo']."'>";
+							echo "<a width='0px' href='delete.php?id_articulo=".$row['id_articulo']."'>";
 								echo "<div class='icon-basura'></div>";
 							echo "</a>";
 						echo "</div>";
 						echo "<div class='lapiz'>";
-							echo "<a width='0px' href='articulos.php?id_articulo=".$row['id_articulo']."'>";
+							echo "<a width='0px' href='articles.php?id_articulo=".$row['id_articulo']."'>";
 								echo "<div class='icon-pencil2'></div>";
 							echo "</a>";
 						echo "</div>";

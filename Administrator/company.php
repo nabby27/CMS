@@ -1,25 +1,19 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 	echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='principal.php'>INICIO</li></a>";
+					echo "<li><a href='main.php'>INICIO</li></a>";
 				echo "</ul>";
 			echo "</nav>";
 			if(isset($_REQUEST['enviar'])){
@@ -65,7 +59,7 @@ echo "<!DOCTYPE html>";
 			$cond="SELECT * from cms_empresa";
 			$result=mysqli_query($link, $cond);
 			while($row=mysqli_fetch_assoc($result)){
-				echo "<form action='empresa.php' method='POST' class='formulario_empresa' enctype='multipart/form-data'>"; 
+				echo "<form action='company.php' method='POST' class='formulario_empresa' enctype='multipart/form-data'>"; 
 					echo "Nombre: <br><br><input type='text' name='nombre' value='".$row['nombre']."'><br><br>";
 					echo "Email: <br><br><input type='text' name='email' value='".$row['email']."'><br><br>";
 					echo "Teléfono: <br><br><input type='number' name='telefono' value='".$row['telefono']."'><br><br>";

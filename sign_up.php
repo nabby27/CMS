@@ -1,6 +1,10 @@
 <?php
-include 'inicio_conjunto.php';
-include 'funciones.php';
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
+include 'database_connection.php';
+include 'functions.php';
 include 'head.php';
 include 'header.php';
 if (isset($_REQUEST['Enviar'])){
@@ -29,25 +33,25 @@ if (isset($_REQUEST['Enviar'])){
 		else{
 			echo "<div class='formulario_inicio_sesion'>";
 				echo "Fallo al registrar el ususario"."<br><br>";
-				echo "<a href='registrarse.php'>Volver a intentarlo</a>";
+				echo "<a href='sign_up.php'>Volver a intentarlo</a>";
 			echo "</div>";
 		}
 	}
 	else{
 		echo "<div class='formulario_inicio_sesion'>";
 			echo "La contraseña no coincide"."<br><br>";
-			echo "<a href='registrarse.php'>Volver a intentarlo</a>";
+			echo "<a href='sign_up.php'>Volver a intentarlo</a>";
 		echo "</div>";
 	}
 }
 else{
-	echo "<div class='container_registrarse'>";
-		echo "<a href='index.php'><div class='registrarse'>";
+	echo "<div class='container_sign_up'>";
+		echo "<a href='index.php'><div class='sign_up'>";
 			echo "Inciar sesión";
 		echo "</div></a>";
 	echo "</div>";
 	echo "<div class='formulario_inicio_sesion'>";	
-		echo "<form action='registrarse.php'>";
+		echo "<form action='sign_up.php'>";
 			echo "REGÍSTRATE"."<br><br>";
 			echo "<fieldset>";
 				echo "<legend>Datos personales</legend>";
@@ -63,7 +67,7 @@ else{
 				echo "Contraseña*:<br><input type='password' name='pass' placeholder='contraseña' pattern='[a-zA-Z0-9_]{5,16}' required><br><br>";
 				echo "Repita la contraseña*:<br><input type='password' name='pass2' placeholder='contraseña' required><br><br>";
 			echo "</fieldset><br><br>";
-			echo "<input class='boton' type='submit' name='Enviar' value='Registrarse'><br><br>";
+			echo "<input class='boton' type='submit' name='Enviar' value='sign_up'><br><br>";
 			echo "* Campos obligatorios";
 		echo "</form>";
 	echo "</div>";

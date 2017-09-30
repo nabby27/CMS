@@ -1,26 +1,20 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 	echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='principal.php'>INICIO</a></li>";
-					echo "<li><a href='usuarios.php'>ATRAS</a></li>";
+					echo "<li><a href='main.php'>INICIO</a></li>";
+					echo "<li><a href='users.php'>ATRAS</a></li>";
 				echo "</ul>";
 			echo "</nav>";
 			if(isset($_REQUEST['Enviar'])){
@@ -35,19 +29,19 @@ echo "<!DOCTYPE html>";
 				if ($pass==$pass2){
 					$cond="INSERT into cms_usuarios VALUES (".$id_usuario.", ".$nombre.", ".$apellidos.", ".$email.", ".$telefono.", ".$direccion.", ".$pass.", 2, ".$id_empresa_a_mostrar.")";
 					if ($result = mysqli_query($link, $cond)){
-						header("Location: usuarios.php");
+						header("Location: users.php");
 					}
 				}
 				else{
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "La contraseña no coincide"."<br><br>";
-						echo "<a href='anadir_usuarios.php'>Volver a intentarlo</a>";
+						echo "<a href='add_users.php'>Volver a intentarlo</a>";
 					echo "</div>";
 				}
 			}
 			else{
 				echo "<div class='formulario_inicio_sesion'>";	
-					echo "<form action='anadir_usuarios.php'>";
+					echo "<form action='add_users.php'>";
 						echo "AÑADE USUARIO"."<br><br>";
 						echo "<fieldset>";
 							echo "<legend>Datos personales</legend>";

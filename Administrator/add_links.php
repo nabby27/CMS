@@ -1,20 +1,14 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 	echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			$id_articulo=$_REQUEST['id_articulo'];
@@ -23,7 +17,7 @@ echo "<!DOCTYPE html>";
 			echo "<div class='nombre_seccion'>".$row['nombre']."</div>";
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='enlaces.php?id_articulo=$id_articulo'>ATRAS</a></li>";
+					echo "<li><a href='links.php?id_articulo=$id_articulo'>ATRAS</a></li>";
 				echo "</ul>";
 			echo "</nav>";
 			if(isset($_REQUEST['enviar'])){
@@ -33,12 +27,12 @@ echo "<!DOCTYPE html>";
 				$vinculo=$_REQUEST['vinculo'];
 				$cond="INSERT INTO cms_links VALUES (".$id_link.", '".$texto."', '".$vinculo."', ".$id_articulo.")";
 				if ($result=mysqli_query($link, $cond)){
-					header( "Location: enlaces.php?id_articulo=$id_articulo");
+					header( "Location: links.php?id_articulo=$id_articulo");
 				}
 				else{
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Fallo al insertar el registro<br>";
-						echo "<a href='anadir_enlaces.php?id_articulo=$id_articulo'>VOLVER A INTENTARLO</a>";
+						echo "<a href='add_links.php?id_articulo=$id_articulo'>VOLVER A INTENTARLO</a>";
 					echo "</div>";
 				}
 			}
@@ -49,7 +43,7 @@ echo "<!DOCTYPE html>";
 				$max+=1;
 				echo "<div class='seccion_fotos_formulario'>";
 					echo "<div class='foto_formulario23'>";
-						echo "<form action='anadir_enlaces.php?id_articulo=$id_articulo' method='POST' enctype='multipart/form-data'>";
+						echo "<form action='add_links.php?id_articulo=$id_articulo' method='POST' enctype='multipart/form-data'>";
 							echo "Texto a mostrar:<br><br><input type='text' name='texto' size='30'><br><br>";
 							echo "Vinculo:<br><br><input type='text' size='60' name='vinculo'><br><br>";
 							$cond="SELECT * from cms_articulo";

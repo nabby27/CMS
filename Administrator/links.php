@@ -1,20 +1,14 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 	echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			if(isset($_REQUEST['enviar'])){
@@ -25,7 +19,7 @@ echo "<!DOCTYPE html>";
 				$articulo=$_REQUEST['articulo'];
 				$cond="UPDATE cms_links set id_articulo=".$id_articulo.", texto='".$texto."', vinculo='".$vinculo."' where id_link=".$id_link."";
 				if($result=mysqli_query($link, $cond)){
-					header( "Location: enlaces.php?id_articulo=$articulo");
+					header( "Location: links.php?id_articulo=$articulo");
 				}
 			}
 			elseif(isset($_REQUEST['id_link'])){
@@ -34,8 +28,8 @@ echo "<!DOCTYPE html>";
 				echo "<div class='nombre_seccion'>".$row['nombre']."</div>";
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='enlaces.php?id_articulo=$id_articulo'>ATRAS</a></li>";
-						echo "<li><a href='anadir_enlaces.php?id_articulo=$id_articulo'>AÑADIR</a></li>";
+						echo "<li><a href='links.php?id_articulo=$id_articulo'>ATRAS</a></li>";
+						echo "<li><a href='add_links.php?id_articulo=$id_articulo'>AÑADIR</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				echo "<div class='seccion_fotos_formulario'>";
@@ -43,7 +37,7 @@ echo "<!DOCTYPE html>";
 					$result = mysqli_query($link, $cond);
 					while($row = mysqli_fetch_assoc($result)){
 						echo "<div class='foto_formulario23'>";
-							echo "<form action='enlaces.php?id_articulo=$id_articulo' method='POST' enctype='multipart/form-data'>";
+							echo "<form action='links.php?id_articulo=$id_articulo' method='POST' enctype='multipart/form-data'>";
 								echo "Texto a mostrar:<br><br><input type='text' name='texto' size='30' value='".$row['texto']."'><br><br>";
 								echo "Vinculo:<br><br><input type='text' size='60' name='vinculo' value='".$row['vinculo']."'><br><br>";
 								echo "Articulo:<br><br>";
@@ -61,7 +55,7 @@ echo "<!DOCTYPE html>";
 								echo "</select><br><br>";
 								echo "<input type='submit' name='enviar' value='Guardar cambios'><br><br>";
 								echo "<div class='papelera2'>";
-									echo "<a width='0px' href='borrar.php?id_link=".$row['id_link']."'>";
+									echo "<a width='0px' href='delete.php?id_link=".$row['id_link']."'>";
 										echo "<div class='icon-basura'></div>";
 									echo "</a>";
 								echo "</div>";
@@ -79,8 +73,8 @@ echo "<!DOCTYPE html>";
 				echo "<div class='nombre_seccion'>".$row['nombre']."</div>";
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='articulos.php?id_articulo=$id_articulo'>ATRAS</a></li>";
-						echo "<li><a href='anadir_enlaces.php?id_articulo=$id_articulo'>AÑADIR</a></li>";
+						echo "<li><a href='articles.php?id_articulo=$id_articulo'>ATRAS</a></li>";
+						echo "<li><a href='add_links.php?id_articulo=$id_articulo'>AÑADIR</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				echo "<div class='seccion_fotos_formulario'>";
@@ -89,7 +83,7 @@ echo "<!DOCTYPE html>";
 					while($row = mysqli_fetch_assoc($result)){
 						echo "<div class='foto_formulario'>";
 							echo "Texto a mostrar:<br><br><input type='text' name='texto' size='30' value='".$row['texto']."'><br><br>";
-								echo "<div class='boton2'><a href='enlaces.php?id_link=".$row['id_link']."&id_articulo=".$id_articulo."'>EDITAR</a></div>";
+								echo "<div class='boton2'><a href='links.php?id_link=".$row['id_link']."&id_articulo=".$id_articulo."'>EDITAR</a></div>";
 						echo "</div>";
 					}
 				echo "</div>";

@@ -1,7 +1,7 @@
 <?php
 /*--------------------------------------------------------------------------------------*/
 /*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
-/*--------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/	
 
 $id_empresa_a_mostrar=1;
 echo "<head>";
@@ -13,7 +13,7 @@ echo "<head>";
 			echo $row['nombre'];
 		}
 	echo "</title>";
-	echo "<link rel='icon' type='image/ico' href='./img/favicon.ico'/>";
+	echo "<link rel='icon' type='image/ico' href='../img/favicon.ico'/>";
 	echo "<link href='./css/normalize.css' type='text/css' rel='stylesheet'>";
 	echo "<link href='./css/main_desingn.css' type='text/css' rel='stylesheet'>";
 echo "</head>";

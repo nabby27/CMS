@@ -1,28 +1,26 @@
 <?php
 /*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
 /*--------------------------------------------------------------------------------------*/
 
-include 'inicio_conjunto.php';
+include 'database_connection.php';
 if (isset($_SESSION['s_admin'])){
 	function mostrar($tabla, $id, $campo, $valor, $campo_mostrar){
 		global $link;
 		$result = mysqli_query($link, "SELECT * from $tabla where $campo=$valor");
 		while($row = mysqli_fetch_assoc($result)) {
 			if ($valor==0){
-				echo "<li><a href='principal.php?id_categoria=".$row[$id]."'>".$row[$campo_mostrar]."</a></li>";
+				echo "<li><a href='main.php?id_categoria=".$row[$id]."'>".$row[$campo_mostrar]."</a></li>";
 			}
 			elseif ($tabla=='cms_categoria'){
-				echo "<li><a href='principal.php?id_subcategoria=".$row[$id]."'>".$row[$campo_mostrar]."</a></li>";
+				echo "<li><a href='main.php?id_subcategoria=".$row[$id]."'>".$row[$campo_mostrar]."</a></li>";
 			}
 			else{
 				if($campo!="id_articulo"){
 					$parametro="id_articulo=".$row[$id]."";
 					echo "<div class='seccion_general'>";
 						echo "<div class='seccion_imagen'><img src='".$row['foto']."' style='width: 100%; height: 100%'></div>";
-						echo "<div class='seccion_nombre'><a href='detalles.php?".$parametro."'>".$row[$campo_mostrar]."</a></div>";
+						echo "<div class='seccion_nombre'><a href='detail.php?".$parametro."'>".$row[$campo_mostrar]."</a></div>";
 					echo "</div>";
 				}
 				else{
@@ -43,7 +41,7 @@ if (isset($_SESSION['s_admin'])){
 		$cond2="SELECT * from $tabla where $campoId=$valorId";
 		$result2 = mysqli_query($link, $cond2);
 		while ($row2 = mysqli_fetch_assoc($result2)){
-			echo "<form action='categorias.php' method='POST' class='formulario_inicio_sesion'>"; 
+			echo "<form action='categories.php' method='POST' class='formulario_inicio_sesion'>"; 
 				echo "Categoria padre: <br><br>";
 					echo "<select name='id_categoria_padre'><br><br>";
 						while ($row=mysqli_fetch_assoc($result)) {
@@ -69,7 +67,7 @@ if (isset($_SESSION['s_admin'])){
 		$cond2="SELECT * from $tabla where $campoId=$valorId";
 		$result2 = mysqli_query($link, $cond2);
 		while ($row2 = mysqli_fetch_assoc($result2)){
-			echo "<form action='articulos.php' method='POST' class='formulario_empresa' id='form_art' enctype='multipart/form-data'>"; 
+			echo "<form action='articles.php' method='POST' class='formulario_empresa' id='form_art' enctype='multipart/form-data'>"; 
 				echo "Nombre: <br><br><input type='text' name='nombre' value='".$row2['nombre']."'><br><br>";
 				echo "Descripcion: <br><br><textarea name='descripcion' form='form_art' rows='15' cols='50'>".$row2['descripcion']."</textarea><br><br>";
 				echo "Foto principal:<br><br><img src='../img/".$row2['foto']."'style='width: 100%; height: 100%'><input type='file' name='foto'><br><br>";

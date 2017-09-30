@@ -1,20 +1,14 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 	echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			if (isset($_REQUEST['enviar'])){
@@ -30,21 +24,21 @@ echo "<!DOCTYPE html>";
 					$cond="UPDATE cms_usuarios set nombre='".$nombre."', apellido='".$apellidos."', email='".$email."', telefono=".$telefono.", direccion='".$direccion."', contraseña='".$pass."', id_empresa=".$id_empresa_a_mostrar." where id_usuario='".$id_usuario."'";
 					echo $cond;
 					if ($result = mysqli_query($link, $cond)){
-						header("Location: usuarios.php");
+						header("Location: users.php");
 					}
 				}
 				else{
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Rellene los campos obligatorios<br>";
-						echo "<a href='usuarios.php?id_usuario='".$id_usuario."''>ATRAS</a>";
+						echo "<a href='users.php?id_usuario='".$id_usuario."''>ATRAS</a>";
 					echo "</div>";
 				}
 			}
 			elseif(isset($_REQUEST['id_usuario'])){
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='principal.php'>INICIO</a></li>";
-						echo "<li><a href='usuarios.php'>ATRAS</a></li>";
+						echo "<li><a href='main.php'>INICIO</a></li>";
+						echo "<li><a href='users.php'>ATRAS</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				$id_usuario=$_REQUEST['id_usuario'];
@@ -52,7 +46,7 @@ echo "<!DOCTYPE html>";
 				$result= mysqli_query($link, $cond);
 				$row=mysqli_fetch_assoc($result);
 				echo "<div class='formulario_inicio_sesion'>";	
-					echo "<form action='usuarios.php'>";
+					echo "<form action='users.php'>";
 						echo "ACTUALIZA USUARIO"."<br><br>";
 						echo "<fieldset>";
 						echo "<legend>Datos personales</legend>";
@@ -77,8 +71,8 @@ echo "<!DOCTYPE html>";
 			else{
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='principal.php'>INICIO</a></li>";
-						echo "<li><a href='anadir_usuarios.php'>AÑADIR</a></li>";
+						echo "<li><a href='main.php'>INICIO</a></li>";
+						echo "<li><a href='add_users.php'>AÑADIR</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				$contador=0;
@@ -105,7 +99,7 @@ echo "<!DOCTYPE html>";
 					echo "<td>".$row['tipo_usuario']."</td>";
 					echo "<td>";
 						echo "<div class='lapiz2'>";
-							echo "<a width='0px' href='usuarios.php?id_usuario=".$row['id_usuario']."'>";
+							echo "<a width='0px' href='users.php?id_usuario=".$row['id_usuario']."'>";
 								echo "<div class='icon-pencil2'></div>";
 							echo "</a>";
 						echo "</div>";
@@ -113,7 +107,7 @@ echo "<!DOCTYPE html>";
 					echo "<td>";
 						if($row['id_tipo']!=1){
 							echo "<div class='papelera2'>";
-								echo "<a width='0px' href='borrar.php?id_usuario=".$row['id_usuario']."'>";
+								echo "<a width='0px' href='delete.php?id_usuario=".$row['id_usuario']."'>";
 									echo "<div class='icon-basura'></div>";
 								echo "</a>";
 							echo "</div>";

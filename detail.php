@@ -1,24 +1,17 @@
-<?php
+<?php 
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 	echo "<!DOCTYPE html>";
 	echo "<html lang='en'>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-		include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-		include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+		include 'database_connection.php';
+		include 'functions.php';
 		include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 		echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 			include 'header.php';
 			if (isset($_SESSION['s_usuario'])){
-/*--Mostrar informacion de un articulo---------------------------------------------------------------------*/
 				if (isset($_REQUEST['id_articulo']) && empty($_REQUEST['id_foto'])){
 					$id_articulo=$_REQUEST['id_articulo'];
 					$id_subcategoria="";
@@ -30,8 +23,8 @@ session_start();
 					$i="i";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='principal.php?inicio=".$i."'>INICIO</a></li>";
-							echo "<li><a href='principal.php?id_subcategoria=$id_subcategoria'>ATRAS</a></li>";
+							echo "<li><a href='main.php?inicio=".$i."'>INICIO</a></li>";
+							echo "<li><a href='main.php?id_subcategoria=$id_subcategoria'>ATRAS</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					echo "<div class='titulo'>";
@@ -48,7 +41,7 @@ session_start();
 							$result = mysqli_query($link, $cond);
 							while($row = mysqli_fetch_assoc($result)){
 								echo "<div class='foto'>";
-									echo "<a href='detalles.php?foto=".$row['id_foto']."'><img src='./img/".$row['foto']."' style='width: 100%'></a>";
+									echo "<a href='detail.php?foto=".$row['id_foto']."'><img src='./img/".$row['foto']."' style='width: 100%'></a>";
 								echo "</div>";
 							}
 						echo "</div>";
@@ -72,9 +65,9 @@ session_start();
 					$i="i";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='principal.php?inicio=".$i."'>INICIO</a></li>";
+							echo "<li><a href='main.php?inicio=".$i."'>INICIO</a></li>";
 							while ($row=mysqli_fetch_assoc($result)){
-								echo "<li><a href='detalles.php?id_articulo=".$row['id_articulo']."'>ATRAS</a></li>";
+								echo "<li><a href='detail.php?id_articulo=".$row['id_articulo']."'>ATRAS</a></li>";
 							}
 						echo "</ul>";
 					echo "</nav>";
@@ -92,9 +85,7 @@ session_start();
 					echo "</div>";
 				}
 			}
-			else{
-				header("Location: index.php");
-			}
+			header("Location: index.php");
 		echo "</body>";
 	echo "</html>";
 ?>

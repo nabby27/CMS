@@ -1,25 +1,19 @@
 <?php
+/*--------------------------------------------------------------------------------------*/
+/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
+/*--------------------------------------------------------------------------------------*/
+
 session_start();
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
-/*--Este codigo es propiedad intelectual de Iván Córdoba Donet ivancordoba77@gmail.com--*/
-/*--------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------*/
 echo "<!DOCTYPE html>";
-/*--Conexion con la base de datos--------------------------------------------------------------------------*/
-	include 'inicio_conjunto.php';
-/*--Ficher de funciones------------------------------------------------------------------------------------*/
-	include 'funciones.php';
-/*--META, TITLE, LINKS-------------------------------------------------------------------------------------*/
+	include 'database_connection.php';
+	include 'functions.php';
 	include 'head.php';
-/*--BODY---------------------------------------------------------------------------------------------------*/
 	echo "<body>";
-/*--CABECERA-----------------------------------------------------------------------------------------------*/
 		include 'header.php';
 		if (empty($_REQUEST['id_categoria'])){
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='principal.php'>INICIO</li></a>";
+					echo "<li><a href='main.php'>INICIO</li></a>";
 				echo "</ul>";
 			echo "</nav>";
 		}
@@ -33,13 +27,13 @@ echo "<!DOCTYPE html>";
 				if ($result=mysqli_query($link, $cond)){
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Actualización exitosa<br>";
-						echo "<a href='categorias.php'>ATRAS</a>";
+						echo "<a href='categories.php'>ATRAS</a>";
 					echo "</div>";
 				}
 				else{
 					echo "<div class='formulario_inicio_sesion'>";
 						echo "Actualización fallida<br>";
-						echo "<a href='categorias.php?nombrea=a'>ATRAS</a>";
+						echo "<a href='categories.php?nombrea=a'>ATRAS</a>";
 					echo "</div>";
 				}
 			}
@@ -58,7 +52,7 @@ echo "<!DOCTYPE html>";
 					$max+=1;
 					$categoria="";
 					$añadir="añadir";
-					echo "<form action='anadir.php?nombrec=".$añadir."' method='POST' class='formulario_inicio_sesion'>"; 
+					echo "<form action='add.php?nombrec=".$añadir."' method='POST' class='formulario_inicio_sesion'>"; 
 						echo "Categoria padre: <br><br>";
 						echo "<select name='id_categoria_padre'><br><br>";
 							while ($row=mysqli_fetch_assoc($result)) {
@@ -82,20 +76,20 @@ echo "<!DOCTYPE html>";
 					$c="";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='categorias.php?añadir_padre=".$id_categoria_padre."'>AÑADIR</a></li>";
+							echo "<li><a href='categories.php?añadir_padre=".$id_categoria_padre."'>AÑADIR</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
-						echo "<a href='categorias.php?id_categoria_padre=".$row['id_categoria']."'><div class='subcategorias' class='boton'>";
+						echo "<a href='categories.php?id_categoria_padre=".$row['id_categoria']."'><div class='subcategorias' class='boton'>";
 							echo $row['nombre'];
 						echo "</div></a>";
 						echo "<div class='papelera'>";
-							echo "<a width='0px' href='borrar.php?id_categoria=".$row['id_categoria']."'>";
+							echo "<a width='0px' href='delete.php?id_categoria=".$row['id_categoria']."'>";
 								echo "<div class='icon-basura'></div>";
 							echo "</a>";
 						echo "</div>";
 						echo "<div class='lapiz'>";
-							echo "<a width='0px' href='categorias.php?id_categoria_actualizar=".$row['id_categoria']."'>";
+							echo "<a width='0px' href='categories.php?id_categoria_actualizar=".$row['id_categoria']."'>";
 								echo "<div class='icon-pencil2'></div>";
 							echo "</a>";
 						echo "</div>";
@@ -107,22 +101,22 @@ echo "<!DOCTYPE html>";
 					$c="0";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='categorias.php?añadir_padre=".$c."'>AÑADIR</a></li>";
+							echo "<li><a href='categories.php?añadir_padre=".$c."'>AÑADIR</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
 						if ($row['id_categoria']!=0){
 							if($row['id_categoria_padre']==0){
-								echo "<a href='categorias.php?id_categoria_padre=".$row['id_categoria']."'><div class='subcategorias' class='boton'>";
+								echo "<a href='categories.php?id_categoria_padre=".$row['id_categoria']."'><div class='subcategorias' class='boton'>";
 									echo $row['nombre'];
 								echo "</div></a>";
 								echo "<div class='papelera'>";
-									echo "<a width='0px' href='borrar.php?id_categoria=".$row['id_categoria']."'>";
+									echo "<a width='0px' href='delete.php?id_categoria=".$row['id_categoria']."'>";
 										echo "<div class='icon-basura'></div>";
 									echo "</a>";
 								echo "</div>";
 								echo "<div class='lapiz'>";
-									echo "<a width='0px' href='categorias.php?id_categoria_actualizar=".$row['id_categoria']."'>";
+									echo "<a width='0px' href='categories.php?id_categoria_actualizar=".$row['id_categoria']."'>";
 										echo "<div class='icon-pencil2'></div>";
 									echo "</a>";
 								echo "</div>";
