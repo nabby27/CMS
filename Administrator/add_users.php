@@ -18,47 +18,46 @@ echo "<html lang='en'>";
 					echo "<li><a href='users.php'>ATRAS</a></li>";
 				echo "</ul>";
 			echo "</nav>";
-			if(isset($_REQUEST['Enviar'])){
-				$id_usuario=$_REQUEST['usuario'];
-				$nombre=$_REQUEST['nombre'];
-				$apellidos=$_REQUEST['apellidos'];
+			if(isset($_REQUEST['send'])){
+				$id_user=$_REQUEST['user'];
+				$name=$_REQUEST['name'];
+				$surname=$_REQUEST['surname'];
 				$email=$_REQUEST['email'];
-				$telefono=$_REQUEST['telefono'];
-				$direccion=$_REQUEST['direccion'];
-				$pass=$_REQUEST['pass'];
-				$pass2=$_REQUEST['pass2'];
-				if ($pass==$pass2){
-					$cond="INSERT into cms_usuarios VALUES (".$id_usuario.", ".$nombre.", ".$apellidos.", ".$email.", ".$telefono.", ".$direccion.", ".$pass.", 2, ".$id_empresa_a_mostrar.")";
-					if ($result = mysqli_query($link, $cond)){
+				$telephon=$_REQUEST['telephon'];
+				$address=$_REQUEST['address'];
+				$password=$_REQUEST['password'];
+				$password2=$_REQUEST['password2'];
+				if ($password==$password2){
+					if ($result = mysqli_query($link, "INSERT into cms_users VALUES (".$id_user.", ".$name.", ".$surname.", ".$email.", ".$telephon.", ".$address.", ".$password.", 2, ".$id_empresa_a_mostrar.")")){
 						header("Location: users.php");
 					}
 				}
 				else{
-					echo "<div class='formulario_inicio_sesion'>";
+					echo "<div class='login_form'>";
 						echo "La contraseña no coincide"."<br><br>";
 						echo "<a href='add_users.php'>Volver a intentarlo</a>";
 					echo "</div>";
 				}
 			}
 			else{
-				echo "<div class='formulario_inicio_sesion'>";	
+				echo "<div class='login_form'>";	
 					echo "<form action='add_users.php'>";
-						echo "AÑADE USUARIO"."<br><br>";
+						echo "AÑADE user"."<br><br>";
 						echo "<fieldset>";
 							echo "<legend>Datos personales</legend>";
-							echo "Nombre*:<br><input type='text' name='nombre' placeholder='nombre' required><br><br>";
-							echo "Apellidos:<br><input type='text' name='apellidos' placeholder='apellidos'><br><br>";
+							echo "name*:<br><input type='text' name='name' placeholder='name' required><br><br>";
+							echo "surname:<br><input type='text' name='surname' placeholder='surname'><br><br>";
 							echo "Email*:<br><input type='text' name='email' placeholder='email' pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' required><br><br>";
-							echo "Teléfono:<br><input type='number' name='telefono' placeholder='teléfono'><br><br>";
-							echo "Dirección:<br><input type='text' name='direccion' placeholder='dirección'><br><br>";
+							echo "Teléfono:<br><input type='number' name='telephon' placeholder='teléfono'><br><br>";
+							echo "Dirección:<br><input type='text' name='address' placeholder='dirección'><br><br>";
 						echo "</fieldset>";
 						echo "<fieldset>";
 							echo "<legend>Datos de la cuenta</legend>";
-							echo "Usuario*:<br><input type='text' name='usuario' placeholder='nombre de usuario' required><br><br>";
-							echo "Contraseña*:<br><input type='password' name='pass' placeholder='contraseña' pattern='[a-zA-Z0-9]{5,16}' required><br><br>";
-							echo "Repita la contraseña*:<br><input type='password' name='pass2' placeholder='contraseña' required><br><br>";
+							echo "user*:<br><input type='text' name='user' placeholder='name de user' required><br><br>";
+							echo "Contraseña*:<br><input type='passwordword' name='password' placeholder='contraseña' pattern='[a-zA-Z0-9]{5,16}' required><br><br>";
+							echo "Repita la contraseña*:<br><input type='passwordword' name='password2' placeholder='contraseña' required><br><br>";
 						echo "</fieldset><br><br>";
-						echo "<input class='boton' type='submit' name='Enviar' value='Registrarse'><br><br>";
+						echo "<input class='boton' type='submit' name='send' value='Registrarse'><br><br>";
 						echo "* Campos obligatorios";
 					echo "</form>";
 				echo "</div>";

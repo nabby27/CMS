@@ -12,12 +12,12 @@ echo "<html lang='en'>";
 	echo "<body>";
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
-			if (isset($_REQUEST['id_categoria'])){
-				$id_categoria=$_REQUEST['id_categoria'];
-				$cond="DELETE FROM cms_foto where id_articulo in (SELECT id_articulo from cms_articulo where id_categoria=".$id_categoria.")";
-				$cond2="DELETE FROM cms_links where id_articulo in (SELECT id_articulo from cms_articulo where id_categoria=".$id_categoria.")";
-				$cond3="DELETE FROM cms_articulo where id_categoria=".$id_categoria."";
-				$cond4="DELETE FROM cms_categoria where id_categoria=".$id_categoria."";
+			if (isset($_REQUEST['id_category'])){
+				$id_category=$_REQUEST['id_category'];
+				$cond="DELETE FROM cms_picture where id_article in (SELECT id_article from cms_article where id_category=".$id_category.")";
+				$cond2="DELETE FROM cms_links where id_article in (SELECT id_article from cms_article where id_category=".$id_category.")";
+				$cond3="DELETE FROM cms_article where id_category=".$id_category."";
+				$cond4="DELETE FROM cms_category where id_category=".$id_category."";
 
 				if ($result = mysqli_query($link, $cond)){
 					if ($result2 = mysqli_query($link, $cond2)){
@@ -29,17 +29,17 @@ echo "<html lang='en'>";
 					}
 				}
 				else{
-					echo "<div class='formulario_inicio_sesion'>";
+					echo "<div class='login_form'>";
 						echo "Eliminacion fallida <br>";
 						echo "<a href='categories.php'>volver a intentarlo</a>";
 					echo "</div>";
 				}
 			}
-			elseif (isset($_REQUEST['id_articulo'])){
-				$id_articulo=$_REQUEST['id_articulo'];
-				$cond="DELETE FROM cms_foto where id_articulo=".$id_articulo."";
-				$cond2="DELETE FROM cms_links where id_articulo=".$id_articulo."";
-				$cond3="DELETE FROM cms_articulo where id_articulo=".$id_articulo."";
+			elseif (isset($_REQUEST['id_article'])){
+				$id_article=$_REQUEST['id_article'];
+				$cond="DELETE FROM cms_picture where id_article=".$id_article."";
+				$cond2="DELETE FROM cms_links where id_article=".$id_article."";
+				$cond3="DELETE FROM cms_article where id_article=".$id_article."";
 				if ($result = mysqli_query($link, $cond)){
 					if ($result2 = mysqli_query($link, $cond2)){
 						if ($result3 = mysqli_query($link, $cond3)){
@@ -48,7 +48,7 @@ echo "<html lang='en'>";
 					}
 				}
 				else{
-					echo "<div class='formulario_inicio_sesion'>";
+					echo "<div class='login_form'>";
 						echo "Eliminacion fallida <br>";
 						echo "<a href='articles.php'>volver a intentarlo</a>";
 					echo "</div>";
@@ -56,29 +56,26 @@ echo "<html lang='en'>";
 			}
 			elseif (isset($_REQUEST['id_link'])){
 				$id_link=$_REQUEST['id_link'];
-				$cond="SELECT id_articulo from cms_links where id_link=$id_link";
+				$cond="SELECT id_article from cms_links where id_link=$id_link";
 				$result=mysqli_query($link, $cond);
 				$row=mysqli_fetch_assoc($result);
 				$cond2="DELETE FROM cms_links where id_link=".$id_link."";
 				if ($result = mysqli_query($link, $cond2)){
-					header("Location: links.php?id_articulo=".$row['id_articulo']);
+					header("Location: links.php?id_article=".$row['id_article']);
 				}
 			}
-			elseif (isset($_REQUEST['id_foto'])){
-				$id_foto=$_REQUEST['id_foto'];
-				$cond="SELECT id_articulo from cms_foto where id_foto=$id_foto";
-				$result=mysqli_query($link, $cond);
+			elseif (isset($_REQUEST['id_picture'])){
+				$id_picture=$_REQUEST['id_picture'];
+				$result=mysqli_query($link, "SELECT id_article from cms_picture where id_picture=$id_picture");
 				$row=mysqli_fetch_assoc($result);
-				$cond2="DELETE FROM cms_foto where id_foto=".$id_foto."";
-				if ($result = mysqli_query($link, $cond2)){
-					header("Location: pictures.php?id_articulo=".$row['id_articulo']);
+				if ($result = mysqli_query($link, "DELETE FROM cms_picture where id_picture=".$id_picture."")){
+					header("Location: pictures.php?id_article=".$row['id_article']);
 				}
 			}
-			elseif (isset($_REQUEST['id_usuario'])){
-				$id_usuario=$_REQUEST['id_usuario'];
-				echo $id_usuario;
-				$cond="DELETE from cms_usuarios where id_usuario='".$id_usuario."'";
-				if ($result=mysqli_query($link, $cond)){
+			elseif (isset($_REQUEST['id_user'])){
+				$id_user=$_REQUEST['id_user'];
+				echo $id_user;
+				if ($result=mysqli_query($link, "DELETE from cms_users where id_user='".$id_user."'")){
 					header("Location: users.php");
 				}
 			}

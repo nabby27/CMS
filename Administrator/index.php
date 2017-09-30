@@ -14,29 +14,29 @@ else{
 		include 'head.php';
 		echo "<body>";
 			include 'header.php';
-			if (isset($_REQUEST['Enviar'])){
-				$usu=$_REQUEST['nombre'];
-				$pass=$_REQUEST['pass'];
-				$result = mysqli_query($link, "SELECT * FROM cms_usuarios where (id_usuario='$usu' or email='$usu') and contraseña='$pass' and id_tipo=1");
+			if (isset($_REQUEST['send'])){
+				$user=$_REQUEST['name'];
+				$password=$_REQUEST['password'];
+				$result = mysqli_query($link, "SELECT * FROM cms_users where (id_user='$user' or email='$user') and password='$password' and id_type=1");
 				if ($row = mysqli_fetch_assoc($result)){
-					$_SESSION['s_admin']=$row['nombre'];
+					$_SESSION['s_admin']=$row['name'];
 					header("Location: main.php");
 				}
 				else{
-					echo "<div class='formulario_inicio_sesion'>";
-						echo "Usuario incorrecto <br>";
+					echo "<div class='login_form'>";
+						echo "user incorrecto <br>";
 					echo "</div>";
 					header( "Refresh:3; index.php");
 				}
 			}
 			else{
-				echo "<div class='formulario_inicio_sesion'>";	
+				echo "<div class='login_form'>";	
 					echo "<form action='index.php'>";
 						echo "<fieldset>";
 							echo "<legend>INICIA SESION DE ADMINISTRADOR</legend>";
-							echo "Ususario o Email:<br><input type='text' name='nombre'><br><br>";
-							echo "Contraseña:<br><input type='password' name='pass'><br><br>";
-							echo "<input class='boton' type='submit' name='Enviar' value='Iniciar sesión'><br>";
+							echo "usersario o Email:<br><input type='text' name='name'><br><br>";
+							echo "password:<br><input type='passwordword' name='password'><br><br>";
+							echo "<input class='boton' type='submit' name='send' value='Iniciar sesión'><br>";
 						echo "</fieldset>";
 					echo "</form>";
 				echo "</div>";

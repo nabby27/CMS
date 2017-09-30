@@ -12,28 +12,27 @@ echo "<html lang='en'>";
 	echo "<body>";
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
-			$id_articulo=$_REQUEST['id_articulo'];
-			$result=mysqli_query($link, "SELECT nombre from cms_articulo where id_articulo=$id_articulo");
+			$id_article=$_REQUEST['id_article'];
+			$result=mysqli_query($link, "SELECT name from cms_article where id_article=$id_article");
 			$row=mysqli_fetch_assoc($result);
-			echo "<div class='nombre_seccion'>".$row['nombre']."</div>";
+			echo "<div class='name_section'>".$row['name']."</div>";
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='links.php?id_articulo=$id_articulo'>ATRAS</a></li>";
+					echo "<li><a href='links.php?id_article=$id_article'>ATRAS</a></li>";
 				echo "</ul>";
 			echo "</nav>";
-			if(isset($_REQUEST['enviar'])){
-				$id_articulo=$_REQUEST['id_articulo'];
+			if(isset($_REQUEST['send'])){
+				$id_article=$_REQUEST['id_article'];
 				$id_link=$_REQUEST['id_link'];
-				$texto=$_REQUEST['texto'];
-				$vinculo=$_REQUEST['vinculo'];
-				$cond="INSERT INTO cms_links VALUES (".$id_link.", '".$texto."', '".$vinculo."', ".$id_articulo.")";
-				if ($result=mysqli_query($link, $cond)){
-					header( "Location: links.php?id_articulo=$id_articulo");
+				$name=$_REQUEST['name'];
+				$link=$_REQUEST['link'];
+				if ($result=mysqli_query($link, "INSERT INTO cms_links VALUES (".$id_link.", '".$name."', '".$link."', ".$id_article.")")){
+					header( "Location: links.php?id_article=$id_article");
 				}
 				else{
-					echo "<div class='formulario_inicio_sesion'>";
+					echo "<div class='login_form'>";
 						echo "Fallo al insertar el registro<br>";
-						echo "<a href='add_links.php?id_articulo=$id_articulo'>VOLVER A INTENTARLO</a>";
+						echo "<a href='add_links.php?id_article=$id_article'>VOLVER A INTENTARLO</a>";
 					echo "</div>";
 				}
 			}
@@ -42,26 +41,25 @@ echo "<html lang='en'>";
 				$row_max=mysqli_fetch_assoc($result_max);
 				$max=$row_max['max'];
 				$max+=1;
-				echo "<div class='seccion_fotos_formulario'>";
-					echo "<div class='foto_formulario23'>";
-						echo "<form action='add_links.php?id_articulo=$id_articulo' method='POST' enctype='multipart/form-data'>";
-							echo "Texto a mostrar:<br><br><input type='text' name='texto' size='30'><br><br>";
-							echo "Vinculo:<br><br><input type='text' size='60' name='vinculo'><br><br>";
-							$cond="SELECT * from cms_articulo";
-							$result=mysqli_query($link, $cond);
-							echo "<select name='id_articulo'>";
+				echo "<div class='section_pictures_form'>";
+					echo "<div class='picture_form23'>";
+						echo "<form action='add_links.php?id_article=$id_article' method='POST' enctype='multipart/form-data'>";
+							echo "Nombre a mostrar:<br><br><input type='text' name='name' size='30'><br><br>";
+							echo "Enlace:<br><br><input type='text' size='60' name='link'><br><br>";
+							$result=mysqli_query($link, "SELECT * from cms_article");
+							echo "<select name='id_article'>";
 								while($row=mysqli_fetch_assoc($result)){
-									if ($id_articulo==$row['id_articulo']){
-										echo "<option value='".$row['id_articulo']."' selected>".$row['nombre']."</option>";
+									if ($id_article==$row['id_article']){
+										echo "<option value='".$row['id_article']."' selected>".$row['name']."</option>";
 									}
 									else{
-										echo "<option value='".$row['id_articulo']."'>".$row['nombre']."</option>";
+										echo "<option value='".$row['id_article']."'>".$row['name']."</option>";
 									}
 								}
 							echo "</select><br><br>";
-							echo "<input type='submit' name='enviar' value='Guardar cambios'><br>";
+							echo "<input type='submit' name='send' value='Guardar cambios'><br>";
 							echo "<input type='hidden' name='id_link' value=".$max.">";
-							echo "<input type='hidden' name='articulo' value=".$id_articulo.">";
+							echo "<input type='hidden' name='article' value=".$id_article.">";
 						echo "</form>";
 					echo "</div>";
 				echo "</div>";

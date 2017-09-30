@@ -11,42 +11,42 @@ echo "<html lang='en'>";
 	include 'head.php';
 	echo "<body>";
 		include 'header.php';
-		if (isset($_SESSION['s_usuario'])){
-			if (isset($_REQUEST['inicio'])){
-				unset($_SESSION['id_cat']);
-				unset($_SESSION['id_subcat']);
+		if (isset($_SESSION['s_user'])){
+			if (isset($_REQUEST['home'])){
+				unset($_SESSION['s_id_category']);
+				unset($_SESSION['s_id_subcategory']);
 			}
-			if (isset($_REQUEST['id_categoria'])){
-				$id_categoria=$_REQUEST['id_categoria'];
-				unset($_SESSION['id_subcat']);
-				$_SESSION['id_cat']=$id_categoria;
+			if (isset($_REQUEST['id_category'])){
+				$id_category=$_REQUEST['id_category'];
+				unset($_SESSION['s_id_subcategory']);
+				$_SESSION['s_id_category']=$id_category;
 			}
 			if (isset($_REQUEST['id_subcategoria'])){
 				$id_subcategoria=$_REQUEST['id_subcategoria'];
-				$_SESSION['id_subcat']=$id_subcategoria;
+				$_SESSION['s_id_subcategory']=$id_subcategoria;
 			}
 			echo "<nav>";
 				echo "<ul>";
-					mostrar("cms_categoria", "id_categoria", "id_categoria_padre", 0, "nombre");
+					mostrar("cms_category", "id_category", "id_category_father", 0, "name");
 				echo "</ul>";
 			echo "</nav>";
-			if (isset($_SESSION['id_cat'])){	
-				echo "<div class='seccion_subcategorias'>";
-					mostrar("cms_categoria", "id_categoria", "id_categoria_padre", $_SESSION['id_cat'], "nombre");
+			if (isset($_SESSION['s_id_category'])){	
+				echo "<div class='section_subcategories'>";
+					mostrar("cms_category", "id_category", "id_category_father", $_SESSION['s_id_category'], "name");
 				echo "</div>";
-				mostrar("cms_articulo", "id_articulo", "id_categoria", $_SESSION['id_cat'], "nombre");
+				mostrar("cms_article", "id_article", "id_category", $_SESSION['s_id_category'], "name");
 			}
-			if (isset($_SESSION['id_subcat'])){
-				echo "<div class='seccion_subcategorias'>";
-					mostrar("cms_categoria", "id_categoria", "id_categoria_padre", $_SESSION['id_subcat'], "nombre");
+			if (isset($_SESSION['s_id_subcategory'])){
+				echo "<div class='section_subcategories'>";
+					mostrar("cms_category", "id_category", "id_category_father", $_SESSION['s_id_subcategory'], "name");
 				echo "</div>";
 				echo "<div class='general_foto'>";
-					mostrar("cms_articulo", "id_articulo", "id_categoria", $_SESSION['id_subcat'], "nombre");
+					mostrar("cms_article", "id_article", "id_category", $_SESSION['s_id_subcategory'], "name");
 				echo "</div>";
 			}
 		}
 		else{
-			echo "<div class='formulario_inicio_sesion'>";
+			echo "<div class='login_form'>";
 				echo "Usuario incorrecto <br>";
 				echo "<a href='index.php'>volver a intentarlo</a>";
 			echo "</div>";

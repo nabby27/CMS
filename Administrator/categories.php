@@ -11,7 +11,7 @@ echo "<html lang='en'>";
 	include 'head.php';
 	echo "<body>";
 		include 'header.php';
-		if (empty($_REQUEST['id_categoria'])){
+		if (empty($_REQUEST['id_category'])){
 			echo "<nav>";
 				echo "<ul>";
 					echo "<li><a href='main.php'>INICIO</li></a>";
@@ -19,105 +19,101 @@ echo "<html lang='en'>";
 			echo "</nav>";
 		}
 		if (isset($_SESSION['s_admin'])){
-			if (isset($_REQUEST['enviar'])){
-				$id_categoria_padre=$_REQUEST['id_categoria_padre'];
-				$nombre=$_REQUEST['nombre'];
-				$id_categoria=$_REQUEST['id_categoria'];
-				$cond="UPDATE cms_categoria set nombre='".$nombre."', id_categoria_padre='".$id_categoria_padre."' where id_categoria=".$id_categoria."";
+			if (isset($_REQUEST['send'])){
+				$id_category_father=$_REQUEST['id_category_father'];
+				$name=$_REQUEST['name'];
+				$id_category=$_REQUEST['id_category'];
 
-				if ($result=mysqli_query($link, $cond)){
-					echo "<div class='formulario_inicio_sesion'>";
+				if ($result=mysqli_query($link, "UPDATE cms_category set name='".$name."', id_category_father='".$id_category_father."' where id_category=".$id_category."")){
+					echo "<div class='login_form'>";
 						echo "Actualización exitosa<br>";
 						echo "<a href='categories.php'>ATRAS</a>";
 					echo "</div>";
 				}
 				else{
-					echo "<div class='formulario_inicio_sesion'>";
+					echo "<div class='login_form'>";
 						echo "Actualización fallida<br>";
-						echo "<a href='categories.php?nombrea=a'>ATRAS</a>";
+						echo "<a href='categories.php?namea=a'>ATRAS</a>";
 					echo "</div>";
 				}
 			}
 			else{
-				if (isset($_REQUEST['id_categoria_actualizar'])){
-					$id_categoria=$_REQUEST['id_categoria_actualizar'];
-					formulario_categoria('cms_categoria', 'id_categoria', $id_categoria);
+				if (isset($_REQUEST['id_update_category'])){
+					$id_category=$_REQUEST['id_update_category'];
+					category_form('cms_category', 'id_category', $id_category);
 				}
-				elseif(isset($_REQUEST['añadir_padre'])){
-					$id_categoria_padre=$_REQUEST['añadir_padre'];
-					$cond="SELECT * from cms_categoria order by nombre";
-					$result= mysqli_query($link, $cond);
-					$result_max=mysqli_query($link, "SELECT max(id_categoria) as max from cms_categoria");
+				elseif(isset($_REQUEST['add_father'])){
+					$id_category_father=$_REQUEST['add_father'];
+					$result= mysqli_query($link, "SELECT * from cms_category order by name");
+					$result_max=mysqli_query($link, "SELECT max(id_category) as max from cms_category");
 					$row_max=mysqli_fetch_assoc($result_max);
 					$max=$row_max['max'];
 					$max+=1;
-					$categoria="";
-					$añadir="añadir";
-					echo "<form action='add.php?nombrec=".$añadir."' method='POST' class='formulario_inicio_sesion'>"; 
-						echo "Categoria padre: <br><br>";
-						echo "<select name='id_categoria_padre'><br><br>";
+					$category="";
+					$add="add";
+					echo "<form action='add.php?namec=".$add."' method='POST' class='login_form'>"; 
+						echo "category father: <br><br>";
+						echo "<select name='id_category_father'><br><br>";
 							while ($row=mysqli_fetch_assoc($result)) {
-								if ($row['id_categoria']==$id_categoria_padre){
-									echo "<option value='".$row['id_categoria']."' selected>".$row['nombre']."</option>";
+								if ($row['id_category']==$id_category_father){
+									echo "<option value='".$row['id_category']."' selected>".$row['name']."</option>";
 								}
 								else{
-									echo "<option value='".$row['id_categoria']."'>".$row['nombre']."</option>";
+									echo "<option value='".$row['id_category']."'>".$row['name']."</option>";
 								}
 							}
 						echo "</select><br><br>";
-						echo "Nombre: <br><br><input type='text' name='nombre'><br><br>";
-						echo "<input type='submit' name='enviar' value='Guardar cambios'><br>";
-						echo "<input type='hidden' name='id_categoria' value=".$max.">";
+						echo "name: <br><br><input type='text' name='name'><br><br>";
+						echo "<input type='submit' name='send' value='Guardar cambios'><br>";
+						echo "<input type='hidden' name='id_category' value=".$max.">";
 					echo "</form>";
 				}
-				elseif (isset($_REQUEST['id_categoria_padre'])) {
-					$id_categoria_padre=$_REQUEST['id_categoria_padre'];
-					$cond="SELECT * from cms_categoria where id_categoria_padre=$id_categoria_padre order by nombre";
-					$result=mysqli_query($link, $cond);
+				elseif (isset($_REQUEST['id_category_father'])) {
+					$id_category_father=$_REQUEST['id_category_father'];
+					$result=mysqli_query($link, "SELECT * from cms_category where id_category_father=$id_category_father order by name");
 					$c="";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='categories.php?añadir_padre=".$id_categoria_padre."'>AÑADIR</a></li>";
+							echo "<li><a href='categories.php?add_father=".$id_category_father."'>AÑADIR</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
-						echo "<a href='categories.php?id_categoria_padre=".$row['id_categoria']."'><div class='subcategorias' class='boton'>";
-							echo $row['nombre'];
+						echo "<a href='categories.php?id_category_father=".$row['id_category']."'><div class='subcategories' class='boton'>";
+							echo $row['name'];
 						echo "</div></a>";
-						echo "<div class='papelera'>";
-							echo "<a width='0px' href='delete.php?id_categoria=".$row['id_categoria']."'>";
+						echo "<div class='trash'>";
+							echo "<a width='0px' href='delete.php?id_category=".$row['id_category']."'>";
 								echo "<div class='icon-basura'></div>";
 							echo "</a>";
 						echo "</div>";
-						echo "<div class='lapiz'>";
-							echo "<a width='0px' href='categories.php?id_categoria_actualizar=".$row['id_categoria']."'>";
+						echo "<div class='pencil'>";
+							echo "<a width='0px' href='categories.php?id_update_category=".$row['id_category']."'>";
 								echo "<div class='icon-pencil2'></div>";
 							echo "</a>";
 						echo "</div>";
 					}
 				}
 				else{
-					$cond="SELECT * from cms_categoria";
-					$result=mysqli_query($link, $cond);
+					$result=mysqli_query($link, "SELECT * from cms_category");
 					$c="0";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='categories.php?añadir_padre=".$c."'>AÑADIR</a></li>";
+							echo "<li><a href='categories.php?add_father=".$c."'>AÑADIR</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
-						if ($row['id_categoria']!=0){
-							if($row['id_categoria_padre']==0){
-								echo "<a href='categories.php?id_categoria_padre=".$row['id_categoria']."'><div class='subcategorias' class='boton'>";
-									echo $row['nombre'];
+						if ($row['id_category']!=0){
+							if($row['id_category_father']==0){
+								echo "<a href='categories.php?id_category_father=".$row['id_category']."'><div class='subcategories' class='boton'>";
+									echo $row['name'];
 								echo "</div></a>";
-								echo "<div class='papelera'>";
-									echo "<a width='0px' href='delete.php?id_categoria=".$row['id_categoria']."'>";
+								echo "<div class='trash'>";
+									echo "<a width='0px' href='delete.php?id_category=".$row['id_category']."'>";
 										echo "<div class='icon-basura'></div>";
 									echo "</a>";
 								echo "</div>";
-								echo "<div class='lapiz'>";
-									echo "<a width='0px' href='categories.php?id_categoria_actualizar=".$row['id_categoria']."'>";
+								echo "<div class='pencil'>";
+									echo "<a width='0px' href='categories.php?id_update_category=".$row['id_category']."'>";
 										echo "<div class='icon-pencil2'></div>";
 									echo "</a>";
 								echo "</div>";

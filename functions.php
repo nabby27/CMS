@@ -4,46 +4,46 @@
 /*--------------------------------------------------------------------------------------*/
 
 include 'database_connection.php';
-if (isset($_SESSION['s_usuario'])){
-	function mostrar($tabla, $id, $campo, $valor, $campo_mostrar){
+if (isset($_SESSION['s_user'])){
+	function mostrar($table, $id, $field, $value, $field_show){
 		global $link;
 		$class='';
-		if(isset($_SESSION['id_cat'])){
-			$class='pulsado';
+		if(isset($_SESSION['s_id_category'])){
+			$class='press';
 		}
-		if (isset($_SESSION['id_subcat'])){
-		 	$clase='pulsado';
+		if (isset($_SESSION['s_id_subcategory'])){
+		 	$clase='press';
 		}
-		if ($result = mysqli_query($link, "SELECT * from $tabla where $campo=$valor order by nombre")){
+		if ($result = mysqli_query($link, "SELECT * from $table where $field=$value order by name")){
 			while($row = mysqli_fetch_assoc($result)) {
-				if ($valor==0){
+				if ($value==0){
 					if ($row[$id]!=0){ 
-						if (isset($_SESSION['id_cat']) && $row[$id]==$_SESSION['id_cat']){
-							echo "<li id='".$class."'><a href='main.php?id_categoria=".$row[$id]."'><strong>".$row[$campo_mostrar]."</strong></a></li>";
+						if (isset($_SESSION['s_id_category']) && $row[$id]==$_SESSION['s_id_category']){
+							echo "<li id='".$class."'><a href='main.php?id_category=".$row[$id]."'><strong>".$row[$field_show]."</strong></a></li>";
 
 						}
 						else{
-							echo "<li><a href='main.php?id_categoria=".$row[$id]."'><strong>".$row[$campo_mostrar]."</strong></a></li>";
+							echo "<li><a href='main.php?id_category=".$row[$id]."'><strong>".$row[$field_show]."</strong></a></li>";
 						}
 					}
 				}
-				elseif ($tabla=='cms_categoria'){
-					if(isset($_SESSION['id_subcat']) && $row[$id]==$_SESSION['id_subcat']){
-						echo "<a href='main.php?id_subcategoria=".$row[$id]."'><div class='subcategorias-".$clase."'><strong>".$row[$campo_mostrar]."</strong></div></a>";
+				elseif ($table=='cms_category'){
+					if(isset($_SESSION['s_id_subcategory']) && $row[$id]==$_SESSION['s_id_subcategory']){
+						echo "<a href='main.php?id_subcategory=".$row[$id]."'><div class='subcategories-".$clase."'><strong>".$row[$field_show]."</strong></div></a>";
 					}
 					else{
-						echo "<a href='main.php?id_subcategoria=".$row[$id]."'><div class='subcategorias'><strong>".$row[$campo_mostrar]."</strong></div></a>";
+						echo "<a href='main.php?id_subcategory=".$row[$id]."'><div class='subcategories'><strong>".$row[$field_show]."</strong></div></a>";
 					}
 				}
 				else{
-					$parametro="id_articulo=".$row[$id]."";
-					echo "<div class='seccion_general'>";
-						echo "<div class='seccion_imagen'><img src='./img/".$row['foto']."' style='width: 100%; height: 100%'></div>";
-						if($campo!="id_articulo"){
-							echo "<a href='detail.php?".$parametro."'><div class='seccion_nombre'>".$row[$campo_mostrar]."</div></a>";
+					$parameter="id_article=".$row[$id]."";
+					echo "<div class='general_section'>";
+						echo "<div class='section_imagen'><img src='./img/".$row['picture']."' style='width: 100%; height: 100%'></div>";
+						if($field!="id_article"){
+							echo "<a href='detail.php?".$parameter."'><div class='section_nombre'>".$row[$field_show]."</div></a>";
 						}
 						else{
-							echo "<div class='seccion_descripcion'>".$row[$campo_mostrar]."</div>";
+							echo "<div class='section_description'>".$row[$field_show]."</div>";
 						}
 					echo "</div>";
 				}

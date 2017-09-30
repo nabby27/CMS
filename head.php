@@ -3,14 +3,13 @@
 /*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
 /*--------------------------------------------------------------------------------------*/
 
-$id_empresa_a_mostrar=1;
+$id_show_company=1;
 echo "<head>";
 	echo "<meta charset='UTF-8'>";
 	echo "<title>";
-		$cond="SELECT nombre from cms_empresa where id_empresa=$id_empresa_a_mostrar";
-		$result = mysqli_query($link, $cond);
+		$result = mysqli_query($link, "SELECT name from cms_company where id_company=$id_show_company");
 		while($row = mysqli_fetch_array($result)){
-			echo $row['nombre'];
+			echo $row['name'];
 		}
 	echo "</title>";
 	echo "<link rel='icon' type='image/ico' href='./img/favicon.ico'/>";

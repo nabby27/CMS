@@ -12,106 +12,104 @@ echo "<html lang='en'>";
 	echo "<body>";
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
-			if (isset($_REQUEST['enviar'])){
-				$descripcion=$_REQUEST['descripcion'];
-				$nombre=$_REQUEST['nombre'];
-				$id_categoria=$_REQUEST['id_categoria'];
-				$id_articulo=$_REQUEST['id_articulo'];
-				if (is_uploaded_file($_FILES['foto']['tmp_name'])){
-					$nombreDirectorio="../img/";
-					$idUnico = time();
-					$nombreFichero = $idUnico."-".$_FILES['foto']['name'];
-					move_uploaded_file($_FILES['foto']['tmp_name'], $nombreDirectorio.$nombreFichero);
-					$foto=$nombreFichero;
-					$cond="UPDATE cms_articulo set nombre='".$nombre."', descripcion='".$descripcion."', id_categoria='".$id_categoria."', foto='".$foto."' where id_articulo=".$id_articulo."";
+			if (isset($_REQUEST['send'])){
+				$description=$_REQUEST['description'];
+				$name=$_REQUEST['name'];
+				$id_category=$_REQUEST['id_category'];
+				$id_article=$_REQUEST['id_article'];
+				if (is_uploaded_file($_FILES['picture']['tmp_name'])){
+					$nameDirectory="../img/";
+					$idUnique = time();
+					$nameFile = $idUnique."-".$_FILES['picture']['name'];
+					move_uploaded_file($_FILES['picture']['tmp_name'], $nameDirectory.$nameFile);
+					$picture=$nameFile;
+					$cond="UPDATE cms_article set name='".$name."', description='".$description."', id_category='".$id_category."', picture='".$picture."' where id_article=".$id_article."";
 				}
 				else{
-					$cond="UPDATE cms_articulo set nombre='".$nombre."', descripcion='".$descripcion."', id_categoria='".$id_categoria."' where id_articulo=".$id_articulo."";
+					$cond="UPDATE cms_article set name='".$name."', description='".$description."', id_category='".$id_category."' where id_article=".$id_article."";
 				}
 				if ($result = mysqli_query($link, $cond)){
-					echo "<div class='formulario_inicio_sesion'>";
+					echo "<div class='login_form'>";
 						echo "Actualizacion exitosa<br>";
 						echo "<a href='articles.php'>ATRAS</a>";
 					echo "</div>";
 				}
 				else{
-					echo "<div class='formulario_inicio_sesion'>";
+					echo "<div class='login_form'>";
 						echo "Actualizacion fallida<br>";
-						echo "<a href='articles.php?nombrea=a'>ATRAS</a>";
+						echo "<a href='articles.php?namea=a'>ATRAS</a>";
 					echo "</div>";
 				}
 			}				
 			else{
-				if (isset($_REQUEST['id_articulo'])){
-					$id_articulo=$_REQUEST['id_articulo'];
+				if (isset($_REQUEST['id_article'])){
+					$id_article=$_REQUEST['id_article'];
 					echo "<nav>";
 						echo "<ul>";
 							echo "<li><a href='main.php'>INICIO</a></li>";
-							echo "<li><a href='pictures.php?id_articulo=$id_articulo'>FOTOS</a></li>";
+							echo "<li><a href='pictures.php?id_article=$id_article'>FOTOS</a></li>";
 							echo "<li><a href='articles.php'>ATRAS</a></li>";
-							echo "<li><a href='links.php?id_articulo=$id_articulo'>ENLACES</a></li>";
+							echo "<li><a href='links.php?id_article=$id_article'>ENLACES</a></li>";
 
 						echo "</ul>";
 					echo "</nav>";
-					formulario_articulo('cms_articulo', 'id_articulo', $id_articulo);
+					article_form('cms_article', 'id_article', $id_article);
 				}
-				elseif(isset($_REQUEST['nombrea'])){
+				elseif(isset($_REQUEST['namea'])){
 					echo "<nav>";
 						echo "<ul>";
 							echo "<li><a href='main.php'>INICIO</a></li>";
 						echo "</ul>";
 					echo "</nav>";
-					$result_max=mysqli_query($link, "SELECT max(id_articulo) as max from cms_articulo");
+					$result_max=mysqli_query($link, "SELECT max(id_article) as max from cms_article");
 					$row_max=mysqli_fetch_assoc($result_max);
 					$max=$row_max['max'];
 					$max+=1;
-					$categoria="";
-					$cond_categoria="SELECT * from cms_categoria";
-					$result_categoria= mysqli_query($link, $cond_categoria);
-					$añadir="añadir";
-					echo "<form action='add.php?nombrea=".$añadir."' method='POST' class='formulario_articulos' id='form_art' enctype='multipart/form-data'>"; 
-						echo "Nombre: <br><br><input type='text' name='nombre'><br><br>";
-						echo "Descripcion: <br><br><textarea name='descripcion' form='form_art' rows='15' cols='50'></textarea><br><br>";
-						echo "Foto principal:<br><br><input type='file' name='foto'><br><br>";
-						echo "Categoria: <br><br>";
-						echo "<select name='id_categoria'><br><br>";
-							while ($row_categoria=mysqli_fetch_assoc($result_categoria)) {
-								$cond_p="SELECT nombre from cms_categoria where id_categoria in (select id_categoria_padre from cms_categoria where id_categoria=".$row_categoria['id_categoria'].")";
-								$result_p=mysqli_query($link, $cond_p);
+					$category="";
+					$result_category= mysqli_query($link, "SELECT * from cms_category");
+					$add="add";
+					echo "<form action='add.php?namea=".$add."' method='POST' class='formulario_articles' id='form_art' enctype='multipart/form-data'>"; 
+						echo "name: <br><br><input type='text' name='name'><br><br>";
+						echo "description: <br><br><textarea name='description' form='form_art' rows='15' cols='50'></textarea><br><br>";
+						echo "picture principal:<br><br><input type='file' name='picture'><br><br>";
+						echo "category: <br><br>";
+						echo "<select name='id_category'><br><br>";
+							while ($row_category=mysqli_fetch_assoc($result_category)) {
+								$result_p=mysqli_query($link, "SELECT name from cms_category where id_category in (select id_category_padre from cms_category where id_category=".$row_category['id_category'].")");
 								$row_p=mysqli_fetch_assoc($result_p);
-								if ($row_categoria['id_categoria']==0){
-									echo "<option value='".$row_categoria['id_categoria']."' selected>".$row_p['nombre']."&nbsp".$row_categoria['nombre']."</option>";
+								if ($row_category['id_category']==0){
+									echo "<option value='".$row_category['id_category']."' selected>".$row_p['name']."&nbsp".$row_category['name']."</option>";
 								}
 								else{
-									echo "<option value='".$row_categoria['id_categoria']."'>".$row_p['nombre']."&nbsp".$row_categoria['nombre']."</option>";
+									echo "<option value='".$row_category['id_category']."'>".$row_p['name']."&nbsp".$row_category['name']."</option>";
 								}
 							}
 						echo "</select><br><br>";
-						echo "<input type='submit' name='enviar' value='Guardar cambios'><br>";
-						echo "<input type='hidden' name='id_articulo' value=".$max.">";
+						echo "<input type='submit' name='send' value='Guardar cambios'><br>";
+						echo "<input type='hidden' name='id_article' value=".$max.">";
 					echo "</form>";			
 				}
 				else{
-					$cond="SELECT * from cms_articulo order by nombre";
+					$cond="SELECT * from cms_article order by name";
 					$result=mysqli_query($link, $cond);
 					$a="";
 					echo "<nav>";
 						echo "<ul>";
 							echo "<li><a href='main.php'>INICIO</a></li>";
-							echo "<li><a href='articles.php?nombrea=".$a."'>AÑADIR</a></li>";
+							echo "<li><a href='articles.php?namea=".$a."'>AÑADIR</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
-						echo "<a href='articles.php?id_articulo=".$row['id_articulo']."'><div class='subcategorias' class='boton'>";
-							echo $row['nombre'];
+						echo "<a href='articles.php?id_article=".$row['id_article']."'><div class='subcategories' class='boton'>";
+							echo $row['name'];
 						echo "</div></a>";
-						echo "<div class='papelera'>";
-							echo "<a width='0px' href='delete.php?id_articulo=".$row['id_articulo']."'>";
+						echo "<div class='trash'>";
+							echo "<a width='0px' href='delete.php?id_article=".$row['id_article']."'>";
 								echo "<div class='icon-basura'></div>";
 							echo "</a>";
 						echo "</div>";
-						echo "<div class='lapiz'>";
-							echo "<a width='0px' href='articles.php?id_articulo=".$row['id_articulo']."'>";
+						echo "<div class='pencil'>";
+							echo "<a width='0px' href='articles.php?id_article=".$row['id_article']."'>";
 								echo "<div class='icon-pencil2'></div>";
 							echo "</a>";
 						echo "</div>";
