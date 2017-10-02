@@ -6,7 +6,6 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
-	include '../strings_es.php';
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
@@ -35,31 +34,31 @@ echo "<html lang='en'>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo "La contraseña no coincide"."<br><br>";
-						echo "<a href='add_users.php'>Volver a intentarlo</a>";
+						echo $S_password_does_not_matc"<br><br>";
+						echo "<a href='add_users.php'>"$S_try_again"</a>";
 					echo "</div>";
 				}
 			}
 			else{
 				echo "<div class='login_form'>";	
 					echo "<form action='add_users.php'>";
-						echo "AÑADE USUARIO"."<br><br>";
+						echo $S_add_user"<br><br>";
 						echo "<fieldset>";
-							echo "<legend>Datos personales</legend>";
-							echo "name*:<br><input type='text' name='name' placeholder='name' required><br><br>";
-							echo "surname:<br><input type='text' name='surname' placeholder='surname'><br><br>";
-							echo "Email*:<br><input type='text' name='email' placeholder='email' pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' required><br><br>";
-							echo "Teléfono:<br><input type='number' name='telephon' placeholder='teléfono'><br><br>";
-							echo "Dirección:<br><input type='text' name='address' placeholder='dirección'><br><br>";
+							echo "<legend>"$S_personal_information"</legend>";
+							echo $S_name"*:<br><input type='text' name='name' placeholder="$S_name" required><br><br>";
+							echo $S_surname":<br><input type='text' name='surname' placeholder="$S_surname"><br><br>";
+							echo $S_email"*:<br><input type='text' name='email' placeholder="$S_email" pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' required><br><br>";
+							echo $S_telephon":<br><input type='number' name='telephon' placeholder="$S_telephon"><br><br>";
+							echo $S_address":<br><input type='text' name='address' placeholder="$S_address"><br><br>";
 						echo "</fieldset>";
 						echo "<fieldset>";
-							echo "<legend>Datos de la cuenta</legend>";
-							echo "user*:<br><input type='text' name='user' placeholder='name de user' required><br><br>";
-							echo "Contraseña*:<br><input type='password' name='password' placeholder='password' pattern='[a-zA-Z0-9]{5,16}' required><br><br>";
-							echo "Repita la contraseña*:<br><input type='password' name='password2' placeholder='password' required><br><br>";
+							echo "<legend>"$S_account_data"</legend>";
+							echo $S_username"*:<br><input type='text' name='user' placeholder="$S_username" required><br><br>";
+							echo $S_password"*:<br><input type='password' name='password' placeholder="$S_password" pattern='[a-zA-Z0-9]{5,16}' required><br><br>";
+							echo $S_repeat_password"*:<br><input type='password' name='password2' placeholder="$S_password" required><br><br>";
 						echo "</fieldset><br><br>";
 						echo "<input class='boton' type='submit' name='send' value="$S_sign_up"><br><br>";
-						echo "* Campos obligatorios";
+						echo "* "$S_required_fields;
 					echo "</form>";
 				echo "</div>";
 			}

@@ -14,10 +14,10 @@ echo "<html lang='en'>";
 		if (isset($_SESSION['s_admin'])){
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='categories.php'>CATEGORIAS</a></li>";
-					echo "<li><a href='company.php'>EMPRESA</a></li>";
-					echo "<li><a href='articles.php'>ARTICULOS</a></li>";
-					echo "<li><a href='users.php'>USUARIOS</a></li>";
+					echo "<li><a href='categories.php'>"$S_categories"</a></li>";
+					echo "<li><a href='company.php'>"$S_company"</a></li>";
+					echo "<li><a href='articles.php'>"$S_articles"</a></li>";
+					echo "<li><a href='users.php'>"$S_users"</a></li>";
 				echo "</ul>";
 			echo "</nav>";
 		}

@@ -2,7 +2,6 @@
 /*--------------------------------------------------------------------------------------*/
 /*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
 /*--------------------------------------------------------------------------------------*/
-include 'strings_es.php'; 
 echo "<header>";
 	$result = mysqli_query($link, "SELECT background_picture from cms_company where id_company=$id_show_company");
 	while($row = mysqli_fetch_array($result)){

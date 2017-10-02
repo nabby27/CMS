@@ -2,7 +2,6 @@
 /*--------------------------------------------------------------------------------------*/
 /*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
 /*--------------------------------------------------------------------------------------*/
-
 include 'database_connection.php';
 if (isset($_SESSION['s_admin'])){
 	function mostrar($table, $id, $field, $value, $show_field){
@@ -40,7 +39,7 @@ if (isset($_SESSION['s_admin'])){
 		$result2 = mysqli_query($link, "SELECT * from $table where $fieldId=$valueId");
 		while ($row2 = mysqli_fetch_assoc($result2)){
 			echo "<form action='categories.php' method='POST' class='login_form'>"; 
-				echo "categoria padre: <br><br>";
+				echo $S_categories_father": <br><br>";
 					echo "<select name='id_category_father'><br><br>";
 						while ($row=mysqli_fetch_assoc($result)) {
 							if ($row['id_category']==$row2['id_category_father']){
@@ -51,7 +50,7 @@ if (isset($_SESSION['s_admin'])){
 							}
 						}
 					echo "</select><br><br>";
-				echo "name: <br><br><input type='text' name='name' value=".$row2['name']."><br><br>";
+				echo $_name": <br><br><input type='text' name='name' value=".$row2['name']."><br><br>";
 				echo "<input type='submit' name='send' value='Guardar cambios'><br>";
 				echo "<input type='hidden' name='id_category' value=".$valueId.">";
 			echo "</form>";
@@ -64,10 +63,10 @@ if (isset($_SESSION['s_admin'])){
 		$result2 = mysqli_query($link, "SELECT * from $table where $fieldId=$valueId");
 		while ($row2 = mysqli_fetch_assoc($result2)){
 			echo "<form action='articles.php' method='POST' class='company_form' id='form_art' enctype='multipart/form-data'>"; 
-				echo "name: <br><br><input type='text' name='name' value='".$row2['name']."'><br><br>";
-				echo "Descripcion: <br><br><textarea name='description' form='form_art' rows='15' cols='50'>".$row2['descripcion']."</textarea><br><br>";
-				echo "picture principal:<br><br><img src='../img/".$row2['picture']."'style='width: 100%; height: 100%'><input type='file' name='picture'><br><br>";
-				echo "category: <br><br>";
+				echo $S_name": <br><br><input type='text' name='name' value='".$row2['name']."'><br><br>";
+				echo $S_description": <br><br><textarea name='description' form='form_art' rows='15' cols='50'>".$row2['descripcion']."</textarea><br><br>";
+				echo $S_main_picture":<br><br><img src='../img/".$row2['picture']."'style='width: 100%; height: 100%'><input type='file' name='picture'><br><br>";
+				echo $S_category": <br><br>";
 					echo "<select name='id_category'><br><br>";
 						while ($row=mysqli_fetch_assoc($result)){
 							$result_p=mysqli_query($link, "SELECT name from cms_category where id_category in (select id_category_father from cms_category where id_category=".$row['id_category'].")");
@@ -80,7 +79,7 @@ if (isset($_SESSION['s_admin'])){
 							}
 						}
 					echo "</select><br><br>";
-				echo "<input type='submit' name='send' value='Guardar cambios'><br>";
+				echo "<input type='submit' name='send' value="$S_save_changes"><br>";
 				echo "<input type='hidden' name='id_article' value=".$valueId.">";
 			echo "</form>";
 		}

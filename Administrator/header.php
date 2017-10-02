@@ -20,7 +20,7 @@ echo "<header>";
 		echo "<div class='session'>";
 			if (isset($_SESSION['s_admin'])){
 				echo "Bienvenido ".$_SESSION['s_admin']."<br><hr>";
-				echo "<a href='delete.php'>Cerrar sesión</a>";
+				echo "<a href='delete.php'>"$S_sign_off"</a>";
 			}
 		echo "</div>";
 	echo "</div>";

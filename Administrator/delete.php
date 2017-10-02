@@ -30,8 +30,8 @@ echo "<html lang='en'>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo "Eliminacion fallida <br>";
-						echo "<a href='categories.php'>volver a intentarlo</a>";
+						echo $S_elimination_failed"<br>";
+						echo "<a href='categories.php'>"$S_try_again"</a>";
 					echo "</div>";
 				}
 			}
@@ -49,8 +49,8 @@ echo "<html lang='en'>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo "Eliminacion fallida <br>";
-						echo "<a href='articles.php'>volver a intentarlo</a>";
+						echo $S_elimination_failed"<br>";
+						echo "<a href='articles.php'>"$S_try_again"</a>";
 					echo "</div>";
 				}
 			}

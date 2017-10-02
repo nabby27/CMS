@@ -30,14 +30,14 @@ echo "<html lang='en'>";
 				}
 				if ($result = mysqli_query($link, $cond)){
 					echo "<div class='login_form'>";
-						echo "Actualizacion exitosa<br>";
-						echo "<a href='articles.php'>ATRAS</a>";
+						echo $S_successful_update"<br>";
+						echo "<a href='articles.php'>"$S_back"</a>";
 					echo "</div>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo "Actualizacion fallida<br>";
-						echo "<a href='articles.php?namea=a'>ATRAS</a>";
+						echo $S_update_failed"<br>";
+						echo "<a href='articles.php?namea=a'>"$S_back"</a>";
 					echo "</div>";
 				}
 			}				
@@ -46,10 +46,10 @@ echo "<html lang='en'>";
 					$id_article=$_REQUEST['id_article'];
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='main.php'>INICIO</a></li>";
-							echo "<li><a href='pictures.php?id_article=$id_article'>FOTOS</a></li>";
-							echo "<li><a href='articles.php'>ATRAS</a></li>";
-							echo "<li><a href='links.php?id_article=$id_article'>ENLACES</a></li>";
+							echo "<li><a href='main.php'>"$S_home"</a></li>";
+							echo "<li><a href='pictures.php?id_article=$id_article'>"$S_pictures"</a></li>";
+							echo "<li><a href='articles.php'>"$S_back"</a></li>";
+							echo "<li><a href='links.php?id_article=$id_article'>"$S_links"</a></li>";
 
 						echo "</ul>";
 					echo "</nav>";
@@ -58,21 +58,21 @@ echo "<html lang='en'>";
 				elseif(isset($_REQUEST['namea'])){
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='main.php'>INICIO</a></li>";
+							echo "<li><a href='main.php'>"$S_home"</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					$result_max=mysqli_query($link, "SELECT max(id_article) as max from cms_article");
 					$row_max=mysqli_fetch_assoc($result_max);
 					$max=$row_max['max'];
-					$max+=1;
+					$max++;
 					$category="";
 					$result_category= mysqli_query($link, "SELECT * from cms_category");
 					$add="add";
 					echo "<form action='add.php?namea=".$add."' method='POST' class='formulario_articles' id='form_art' enctype='multipart/form-data'>"; 
-						echo "name: <br><br><input type='text' name='name'><br><br>";
-						echo "description: <br><br><textarea name='description' form='form_art' rows='15' cols='50'></textarea><br><br>";
-						echo "picture principal:<br><br><input type='file' name='picture'><br><br>";
-						echo "category: <br><br>";
+						echo $S_name": <br><br><input type='text' name='name'><br><br>";
+						echo $S_description": <br><br><textarea name='description' form='form_art' rows='15' cols='50'></textarea><br><br>";
+						echo $S_main_image":<br><br><input type='file' name='picture'><br><br>";
+						echo $S_category": <br><br>";
 						echo "<select name='id_category'><br><br>";
 							while ($row_category=mysqli_fetch_assoc($result_category)) {
 								$result_p=mysqli_query($link, "SELECT name from cms_category where id_category in (select id_category_padre from cms_category where id_category=".$row_category['id_category'].")");
@@ -85,7 +85,7 @@ echo "<html lang='en'>";
 								}
 							}
 						echo "</select><br><br>";
-						echo "<input type='submit' name='send' value='Guardar cambios'><br>";
+						echo "<input type='submit' name='send' value="$S_save_changes"><br>";
 						echo "<input type='hidden' name='id_article' value=".$max.">";
 					echo "</form>";			
 				}
@@ -95,8 +95,8 @@ echo "<html lang='en'>";
 					$a="";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='main.php'>INICIO</a></li>";
-							echo "<li><a href='articles.php?namea=".$a."'>AÑADIR</a></li>";
+							echo "<li><a href='main.php'>"$S_home"</a></li>";
+							echo "<li><a href='articles.php?namea=".$a."'>"$S_add"</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){

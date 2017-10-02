@@ -4,6 +4,7 @@
 /*--------------------------------------------------------------------------------------*/	
 
 $id_show_company=1;
+include '../strings/strings_es.php';
 echo "<head>";
 	echo "<meta charset='UTF-8'>";
 	echo "<title>";

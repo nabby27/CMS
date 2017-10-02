@@ -6,7 +6,6 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
-	include '../strings_es.php';
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
