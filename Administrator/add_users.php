@@ -6,6 +6,7 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
+	include '../strings_es.php';
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
@@ -14,8 +15,8 @@ echo "<html lang='en'>";
 		if (isset($_SESSION['s_admin'])){
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='main.php'>INICIO</a></li>";
-					echo "<li><a href='users.php'>ATRAS</a></li>";
+					echo "<li><a href='main.php'>"$S_home"</a></li>";
+					echo "<li><a href='users.php'>"$S_back"</a></li>";
 				echo "</ul>";
 			echo "</nav>";
 			if(isset($_REQUEST['send'])){
@@ -42,7 +43,7 @@ echo "<html lang='en'>";
 			else{
 				echo "<div class='login_form'>";	
 					echo "<form action='add_users.php'>";
-						echo "AÑADE user"."<br><br>";
+						echo "AÑADE USUARIO"."<br><br>";
 						echo "<fieldset>";
 							echo "<legend>Datos personales</legend>";
 							echo "name*:<br><input type='text' name='name' placeholder='name' required><br><br>";
@@ -54,10 +55,10 @@ echo "<html lang='en'>";
 						echo "<fieldset>";
 							echo "<legend>Datos de la cuenta</legend>";
 							echo "user*:<br><input type='text' name='user' placeholder='name de user' required><br><br>";
-							echo "Contraseña*:<br><input type='passwordword' name='password' placeholder='contraseña' pattern='[a-zA-Z0-9]{5,16}' required><br><br>";
-							echo "Repita la contraseña*:<br><input type='passwordword' name='password2' placeholder='contraseña' required><br><br>";
+							echo "Contraseña*:<br><input type='password' name='password' placeholder='password' pattern='[a-zA-Z0-9]{5,16}' required><br><br>";
+							echo "Repita la contraseña*:<br><input type='password' name='password2' placeholder='password' required><br><br>";
 						echo "</fieldset><br><br>";
-						echo "<input class='boton' type='submit' name='send' value='Registrarse'><br><br>";
+						echo "<input class='boton' type='submit' name='send' value="$S_sign_up"><br><br>";
 						echo "* Campos obligatorios";
 					echo "</form>";
 				echo "</div>";

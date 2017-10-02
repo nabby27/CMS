@@ -6,6 +6,7 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
+	include 'strings_es.php'; 
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
@@ -47,8 +48,8 @@ echo "<html lang='en'>";
 		}
 		else{
 			echo "<div class='login_form'>";
-				echo "Usuario incorrecto <br>";
-				echo "<a href='index.php'>volver a intentarlo</a>";
+				echo $S_wrong_user"<br>";
+				echo "<a href='index.php'>"$S_try_again"</a>";
 			echo "</div>";
 		}
 	include 'scripts.php';

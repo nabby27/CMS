@@ -6,6 +6,7 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
+	include '../strings_es.php';
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
@@ -18,14 +19,14 @@ echo "<html lang='en'>";
 				$id_category=$_REQUEST['id_category'];
 				if ($result=mysqli_query($link, "INSERT INTO cms_category VALUES (".$id_category_father.", ".$id_category.", '".$name."', ".$id_empresa_a_mostrar.")")){
 					echo "<div class='login_form'>";
-						echo "Registro insertado correctamente<br>";
-						echo "<a href='categories.php'>ATRAS</a>";
+						echo $S_record_inserted_correctly"<br>";
+						echo "<a href='categories.php'>"$S_back"</a>";
 					echo "</div>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo "Fallo al insertar el registro<br>";
-						echo "<a href='categories.php?namea=a'>ATRAS</a>";
+						echo $S_failure_to_insert_the_record"<br>";
+						echo "<a href='categories.php?namea=a'>"$S_back"</a>";
 					echo "</div>";
 				}
 			}
@@ -42,14 +43,14 @@ echo "<html lang='en'>";
 					$picture=$nameFile;
 					if ($result=mysqli_query($link, "INSERT INTO cms_article VALUES (".$id_article.", '".$name."', '".$description."', '".$picture."', ".$id_category.")")){
 						echo "<div class='login_form'>";
-							echo "Registro insertado correctamente<br>";
-							echo "<a href='articles.php'>ATRAS</a>";
+							echo $S_failure_to_insert_the_record"<br>";
+							echo "<a href='articles.php'>"$S_back"</a>";
 						echo "</div>";
 					}
 					else{
 						echo "<div class='login_form'>";
-							echo "Fallo al insertar el registro<br>";
-							echo "<a href='articles.php?namea=a'>ATRAS</a>";
+							echo $S_failure_to_insert_the_record"<br>";
+							echo "<a href='articles.php?namea=a'>"$S_back"</a>";
 						echo "</div>";
 					}
 				}

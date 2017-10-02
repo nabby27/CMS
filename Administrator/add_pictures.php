@@ -6,6 +6,7 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
+	include '../strings_es.php';
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
@@ -18,7 +19,7 @@ echo "<html lang='en'>";
 			echo "<div class='section_name'>".$row['name']."</div>";
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='pictures.php?id_article=$id_article'>ATRAS</a></li>";
+					echo "<li><a href='pictures.php?id_article=$id_article'>"$S_back"</a></li>";
 				echo "</ul>";
 			echo "</nav>";
 			if(isset($_REQUEST['send'])){
@@ -36,8 +37,8 @@ echo "<html lang='en'>";
 					}
 					else{
 						echo "<div class='login_form'>";
-							echo "Fallo al insertar el registro<br>";
-							echo "<a href='add_pictures.php?id_article=$id_article'>ATRAS</a>";
+							echo $S_failure_to_insert_the_record"<br>";
+							echo "<a href='add_pictures.php?id_article=$id_article'>"$S_back"</a>";
 						echo "</div>";
 					}
 				}
@@ -64,7 +65,7 @@ echo "<html lang='en'>";
 									}
 								}
 							echo "</select><br><br>";
-							echo "<input type='submit' name='send' value='Guardar cambios'><br>";
+							echo "<input type='submit' name='send' value="$S_save_changes"><br>";
 							echo "<input type='hidden' name='id_picture' value=".$max.">";
 						echo "</form>";
 					echo "</div>";

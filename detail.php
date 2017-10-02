@@ -6,6 +6,7 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
+	include 'strings_es.php'; 
 	include 'database_connection.php';
 	include 'functions.php';
 	include 'head.php';
@@ -22,8 +23,8 @@ echo "<html lang='en'>";
 				$i="i";
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='main.php?home=".$i."'>home</a></li>";
-						echo "<li><a href='main.php?id_subcategory=$id_subcategory'>ATRAS</a></li>";
+						echo "<li><a href='main.php?home=".$i."'>"$S_home"</a></li>";
+						echo "<li><a href='main.php?id_subcategory=$id_subcategory'>"$S_back"</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				echo "<div class='tittle'>";
@@ -60,9 +61,9 @@ echo "<html lang='en'>";
 				$i="i";
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='main.php?home=".$i."'>INICIO</a></li>";
+						echo "<li><a href='main.php?home=".$i."'>"$S_home"</a></li>";
 						while ($row=mysqli_fetch_assoc($result)){
-							echo "<li><a href='detail.php?id_article=".$row['id_article']."'>ATRAS</a></li>";
+							echo "<li><a href='detail.php?id_article=".$row['id_article']."'>"$S_back"</a></li>";
 						}
 					echo "</ul>";
 				echo "</nav>";

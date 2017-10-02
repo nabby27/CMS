@@ -2,7 +2,7 @@
 /*--------------------------------------------------------------------------------------*/
 /*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
 /*--------------------------------------------------------------------------------------*/
-
+include 'strings_es.php'; 
 echo "<header>";
 	$result = mysqli_query($link, "SELECT background_picture from cms_company where id_company=$id_show_company");
 	while($row = mysqli_fetch_array($result)){
@@ -31,7 +31,7 @@ echo "<header>";
 		echo "<div class='session'>";
 			if (isset($_SESSION['s_user'])){
 				echo "Bienvenido ".$_SESSION['s_user']."<br><hr>";
-				echo "<a href='exit.php'>Cerrar sesión</a>";
+				echo "<a href='exit.php'>"$S_sign_off"</a>";
 			}
 		echo "</div>";
 	echo "</div>";

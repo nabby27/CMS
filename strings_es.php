@@ -1,0 +1,33 @@
+<?php
+$S_account_data = 'Datos de la cuenta';
+$S_address = 'Dirección';
+$S_back = 'Atras';
+$S_can_not_connect_to_server = 'No se puede conectar con el servidor';
+$S_email = 'Email';
+$S_failed_to_register_user = 'Fallo al registrar el ususario';
+$S_failed_to_select_the_database = 'Fallo al seleccionar la base de datos';
+$S_failure_to_insert_the_record = 'Fallo al insertar el registro';
+$S_home = 'Inicio';
+$S_link = 'Enlace';
+$S_log_in = 'Iniciar sesión';
+$S_name = 'Nombre';
+$S_password = 'Contraseña';
+$S_password_does_not_match = 'La contraseña no coincide';
+$S_personal_information = 'Datos personales';
+$S_record_inserted_correctly = 'Registro insertado correctamente';
+$S_registered_user_correctly = 'Usuario registrado correctamente';
+$S_repeat_password = 'Repita la contraseña';
+$S_required_fields = 'Campos obligatorios';
+$S_save_changes = 'Guardar cambios';
+$S_sign_off = 'Cerrar sesión';
+$S_sign_up = 'Regístrate';
+$S_sign_up_here = 'Regístrate aquí';
+$S_surname = 'Apellidos';
+$S_telephon = 'Teléfono';
+$S_text_to_show = 'Texto a mostrar';
+$S_try_again = 'Volver a intentarlo';
+$S_user = 'Usuario';
+$S_username = 'Nombre de usuario';
+$S_username_or_email = 'Usuario o Email';
+$S_wrong_user = 'Usuario incorrecto';
+?>

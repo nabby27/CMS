@@ -10,6 +10,7 @@ if (isset($_SESSION['s_user'])){
 else{
 	echo "<!DOCTYPE html>";
 	echo "<html lang='en'>";
+		include 'strings_es.php'; 
 		include 'database_connection.php';
 		include 'head.php';
 		echo "<body>";
@@ -24,8 +25,8 @@ else{
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo "Usuario incorrecto <br><br>";
-						echo "<a href='index.php'>volver a intentarlo</a>";
+						echo $S_wrong_user"<br><br>";
+						echo "<a href='index.php'>"$S_try_again"</a>";
 					echo "</div>";
 				}
 			}
@@ -33,16 +34,16 @@ else{
 				echo "<div class='login_form'>";	
 					echo "<form action='index.php'>";
 						echo "<fieldset>";
-							echo "<legend>INICIA SESIÓN</legend>";
-							echo "Usuario o Email:<br><input type='text' name='name'><br><br>";
-							echo "Contraseña:<br><input type='passwordword' name='password'><br><br>";
-							echo "<input class='boton' type='submit' name='Enviar' value='Iniciar sesión'><br>";
+							echo "<legend>"$S_log_in"</legend>";
+							echo $S_username_or_email":<br><input type='text' name='name'><br><br>";
+							echo $S_password":<br><input type='passwordword' name='password'><br><br>";
+							echo "<input class='boton' type='submit' name='send' value='Iniciar sesión'><br>";
 						echo "</fieldset>";
 					echo "</form>";
 				echo "</div>";
 				echo "<div class='container_sign_up'>";
 					echo "<a href='sign_up.php'><div class='sign_up'>";
-						echo "Regístrate aquí";
+						echo $S_sign_up_here;
 					echo "</div></a>";
 				echo "</div>";
 			}
