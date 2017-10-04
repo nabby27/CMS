@@ -28,22 +28,22 @@ html, body {
     margin: 0;
 }
  
-#full-screen-background-image {
+#full_screen_background_image {
     z-index: -999;
     width: 100%;
-    height: 100%;
+    height: auto;
     position: fixed;
     top: 0;
     left: 0;
 }
 
-.formulario_inicio_sesion .boton{
+.login_form .button{
 	border-radius: 15px;
 	background: #000000CC;
 	color: white;
 }
 
-.formulario_inicio_sesion .boton:hover{
+.login_form .button:hover{
 	border-radius: 15px;
 	background: #FF0000;
 	color: white;
@@ -55,7 +55,7 @@ body{
 	height: 100%;
 }
 
-.cabecera{
+.header{
 	height: 125px;
 	right: 0px;
 	position: relative;
@@ -63,7 +63,7 @@ body{
 	background: purple;
 }
 
-.cabecera .nombre_empresa{
+.header .company_name{
 	bottom: 20%;
 	font-size: 300%;
 	height: 50%;
@@ -75,12 +75,12 @@ body{
 	width: 50%;
 }
 
-.cabecera .nombre_empresa a{
+.header .company_name a{
 	text-decoration: none;
 	color: #FF0000CC;
 }
 
-.cabecera .logo_empresa{
+.header .company_logo{
 	bottom: 0px;
 	height: 100px;
 	margin: 1%;
@@ -91,7 +91,7 @@ body{
 	background-color: black;
 }
 
-.cabecera .sesion{
+.header .session{
 	background: #FF0000CC;
 	color:  white;
 	position: absolute;
@@ -102,16 +102,16 @@ body{
 	padding: 10px;
 }
 
-.cabecera .sesion a{
+.header .session a{
 	text-decoration: none;
 	color: white;
 }
 
-.cabecera .sesion a:hover{
+.header .session a:hover{
 	color: #000000CC;
 }
 
-body .formulario_inicio_sesion {
+body .login_form {
 	background: #000000CC;
 	color: white;
 	text-align: center;
@@ -123,16 +123,16 @@ body .formulario_inicio_sesion {
 	display: inline-block;
 }
 
-body .formulario_inicio_sesion a{
+body .login_form a{
 	color: #FF0000;
 }
 
-.container_registrarse{
+.container_sign_up{
 	margin-left: 45%;
 	margin-top:50px;
 	width: 10%;
 }
-.container_registrarse .registrarse{
+.container_sign_up .sign_up{
 	width: 100%;
 	display: inline-block;
 	background: #000000CC;
@@ -142,11 +142,11 @@ body .formulario_inicio_sesion a{
 	border-radius: 15px;
 }
 
-body .registrarse:hover{
+body .sign_up:hover{
 	background-color: #FF0000CC;
 }
 
-body .registrarse a{
+body .sign_up a{
 	color: white;
 	text-decoration: none;
 }
@@ -189,7 +189,7 @@ nav ul li a:hover{
 	border-radius: 15px;
 }
 
-.seccion_subcategorias{
+.subcategories_section{
 	background-color:#F7F7F7CC;
 	width: 100%;
 	float:left;
@@ -197,16 +197,16 @@ nav ul li a:hover{
 }
 
 
-#pulsado{
+#press{
 	background-color:#000000CC;
 	border-radius: 15px;
 }
 
-#pulsado a{
+#press a{
 	color: #FF0000;
 }
 
-.subcategorias-pulsado{
+.subcategories-press{
 	border-radius: 15px;
 	font-size: 90%;
 	color: #000000;
@@ -225,11 +225,11 @@ nav ul li a:hover{
 	width: 9%;
 }
 
-.subcategorias-pulsado{
+.subcategories-press{
 		color: #FF0000;
 }
 
-.seccion_subcategorias .subcategorias{
+.subcategories_section .subcategories{
 	border-radius: 15px;
 	font-size: 90%;
 	color: #000000;
@@ -248,12 +248,12 @@ nav ul li a:hover{
 	width: 10%;
 }
 
-.seccion_subcategorias .subcategorias:hover{
+.subcategories_section .subcategories:hover{
 	background-color: #000000CC;
 	color: #FF0000;
 }
 
-.seccion_general{
+.general_section{
 	background-color: yellow;
 	float:left;
 	display: inline-block;
@@ -267,20 +267,20 @@ nav ul li a:hover{
 	padding: 10px; 
 }
 
-.general_foto{
+.general_picture{
 	float: left;
 	display: inline-block;
 	width: 70%;
 	margin-left: 0px;
 }
 
-.seccion_general .seccion_imagen{
+.general_section .picture_section{
 	display: inline-block;
 	margin-left: 10%;
 	margin-top: 30px;
 	width: 80%;
 }
-.seccion_general .seccion_nombre{
+.general_section .name_section{
 	display: inline-block;
 	margin-top: 20px;
 	font-size: 20px;
@@ -296,18 +296,18 @@ nav ul li a:hover{
 	font-size: 20px;
 }
 
-.seccion_general a .seccion_nombre {
+.general_section a .name_section {
 	color: #000000;
 	text-decoration: none;
 }
 
-.seccion_general a:hover .seccion_nombre {
+.general_section a:hover .name_section {
 	color: #d2ecf9;
 	background-color: #FF0000CC;
 	border-radius: 15px;
 }
 
-.seccion_general .seccion_descripcion{
+.general_section .description_section{
 	color: #000000;
 	padding: 5px;
 	margin-top: 15px;
@@ -316,7 +316,7 @@ nav ul li a:hover{
 	padding-right: 65px;
 }
 
-.seccion_fotos{
+.picture_section{
 	background: #FFFFFFCC;
 	display: inline-block;
 	margin-left: 44%;
@@ -328,7 +328,7 @@ nav ul li a:hover{
 
 }
 
-.seccion_enlaces{
+.link_section{
 	background: #FFFFFFCC;
 	display: inline-block;
 	float:left;
@@ -340,7 +340,7 @@ nav ul li a:hover{
 	padding: 10px;
 }
 
-.seccion_fotos .foto{
+.picture_section .picture{
 	display: inline-block;
 	width: 20%;
 	padding: 6%;
@@ -348,7 +348,7 @@ nav ul li a:hover{
 	padding-bottom: 2%;
 }
 
-.seccion_enlaces .enlaces{
+.link_section .links{
 	margin-left: 5%;
 	font-size: 20px;
 	height: 30px;
@@ -357,17 +357,17 @@ nav ul li a:hover{
 	border-radius: 15px;
 }
 
-.seccion_enlaces .enlaces a{
+.link_section .links a{
 	color: #000000;
 	text-decoration: none;
 }
 
-.seccion_enlaces .enlaces a:hover{
+.link_section .links a:hover{
 	color: #FF0000;
 	border-radius: 15px;
 }
 
-.container_foto{
+.picture_container{
 	background-color: #FFFFFFCC;
 	width: 80%;
 	margin-left: 10%;
@@ -375,7 +375,7 @@ nav ul li a:hover{
 	position: absolute;
 	border-radius: 15px;
 }
-.foto_individual{
+.alone_picture{
 	width: 80%;
 	margin: 20px;
 	margin-left: 10%;
@@ -383,7 +383,7 @@ nav ul li a:hover{
 	position: relative;
 }
 
-.foto_descripcion{
+.description_picture{
 	width: 80%;
 	margin: 20px;
 	margin-left: 10%;
