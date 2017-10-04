@@ -1,13 +1,12 @@
-<?php
-/*--------------------------------------------------------------------------------------*/
-/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
-/*--------------------------------------------------------------------------------------*/
+<!--***********************************************************************************-->
+<!--************created by Iván Córdoba Donet ivancordoba77@gmail.com******************-->
+<!--***********************************************************************************-->
 
-include 'database_connection.php';
+<?php 
+include 'database_connection.php'; 
 if (isset($_SESSION['s_user'])){
 	function mostrar($table, $id, $field, $value, $field_show){
 		global $link;
-		$class='';
 		if(isset($_SESSION['s_id_category'])){
 			$class='press';
 		}
@@ -38,12 +37,12 @@ if (isset($_SESSION['s_user'])){
 				else{
 					$parameter="id_article=".$row[$id]."";
 					echo "<div class='general_section'>";
-						echo "<div class='section_imagen'><img src='./img/".$row['picture']."' style='width: 100%; height: 100%'></div>";
+						echo "<div class='picture_section'><img src='./img/".$row['picture']."' style='width: 100%; height: 100%'></div>";
 						if($field!="id_article"){
-							echo "<a href='detail.php?".$parameter."'><div class='section_nombre'>".$row[$field_show]."</div></a>";
+							echo "<a href='detail.php?".$parameter."'><div class='name_section'>".$row[$field_show]."</div></a>";
 						}
 						else{
-							echo "<div class='section_description'>".$row[$field_show]."</div>";
+							echo "<div class='description_section'>".$row[$field_show]."</div>";
 						}
 					echo "</div>";
 				}
@@ -51,6 +50,6 @@ if (isset($_SESSION['s_user'])){
 		}
 	}
 }
-header("Location: index.php");
-
+else
+	header("Location: index.php");
 ?>

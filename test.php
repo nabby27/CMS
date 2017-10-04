@@ -2,6 +2,11 @@
 <!--************created by Iván Córdoba Donet ivancordoba77@gmail.com******************-->
 <!--***********************************************************************************-->
 
+<?php 
+include 'database_connection.php';
+include 'head.php';
+?>
+
 <header>
 	<?php
 	$cond = "SELECT background_picture from cms_company where id_company=$id_show_company";

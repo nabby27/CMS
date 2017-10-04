@@ -44,7 +44,7 @@ else{
 						<fieldset>
 							<legend><?= $S_log_in ; ?></legend>
 							<?= $S_username_or_email ; ?>: <br><input type='text' name='name'><br><br>
-							<?= $S_password ?>:<br><input type='password' name='password'><br><br>
+							<?= $S_password ; ?>:<br><input type='password' name='password'><br><br>
 							<?= "<input class='button' type='submit' name='send' value='$S_log_in'><br>"; ?>
 						</fieldset>
 					</form>
@@ -60,4 +60,6 @@ else{
 			?>
 		</body>
 	</html>
-<?php } ?>
+<?php 
+} 
+?>
