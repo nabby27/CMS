@@ -4,7 +4,7 @@
 
 DROP DATABASE IF EXISTS CMS;
 
-CREATE DATABASE CMS;
+CREATE DATABASE CMS CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 use CMS;
 
@@ -32,7 +32,7 @@ CREATE TABLE cms_category (
 CREATE TABLE cms_article (
   id_article int(30) NOT NULL,
   name varchar(100) DEFAULT NULL,
-  description varchar(600) DEFAULT NULL,
+  description text(600) DEFAULT NULL,
   picture varchar(100) DEFAULT NULL,
   id_category int(30) NOT NULL,
   PRIMARY KEY (id_article),

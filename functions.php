@@ -11,7 +11,7 @@ if (isset($_SESSION['s_user'])){
 			$class='press';
 		}
 		if (isset($_SESSION['s_id_subcategory'])){
-		 	$clase='press';
+		 	$class='press';
 		}
 		if ($result = mysqli_query($link, "SELECT * from $table where $field=$value order by name")){
 			while($row = mysqli_fetch_assoc($result)) {
@@ -28,7 +28,7 @@ if (isset($_SESSION['s_user'])){
 				}
 				elseif ($table=='cms_category'){
 					if(isset($_SESSION['s_id_subcategory']) && $row[$id]==$_SESSION['s_id_subcategory']){
-						echo "<a href='main.php?id_subcategory=".$row[$id]."'><div class='subcategories-".$clase."'><strong>".$row[$field_show]."</strong></div></a>";
+						echo "<a href='main.php?id_subcategory=".$row[$id]."'><div class='subcategories-".$class."'><strong>".$row[$field_show]."</strong></div></a>";
 					}
 					else{
 						echo "<a href='main.php?id_subcategory=".$row[$id]."'><div class='subcategories'><strong>".$row[$field_show]."</strong></div></a>";

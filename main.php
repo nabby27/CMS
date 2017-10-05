@@ -36,16 +36,16 @@
 			<?php
 			if (isset($_SESSION['s_id_category'])){	
 			?>
-				<div class='section_subcategories'>
+				<div class='subcategories_section'>
 					<?php mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_category'], 'name'); ?>
 				</div>
 				<?php mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_category'], 'name'); 
 			}
 			if (isset($_SESSION['s_id_subcategory'])){ ?>
-				<div class='section_subcategories'>
+				<div class='subcategories_section'>
 					<?php mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_subcategory'], 'name'); ?>
 				</div>
-				<div class='general_foto'>
+				<div class='general_picture'>
 					<?php mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_subcategory'], 'name'); ?>
 				</div>
 			<?php

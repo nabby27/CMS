@@ -60,10 +60,11 @@ body{
 	right: 0px;
 	position: relative;
 	width: 100%;
-	background: purple;
 }
 
-.header .company_name{
+.header .company_name a{
+	text-decoration: none;
+	color: #FF0000CC;
 	bottom: 20%;
 	font-size: 300%;
 	height: 50%;
@@ -73,11 +74,6 @@ body{
 	text-align: center;
 	text-transform: uppercase;
 	width: 50%;
-}
-
-.header .company_name a{
-	text-decoration: none;
-	color: #FF0000CC;
 }
 
 .header .company_logo{
