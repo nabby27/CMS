@@ -3,8 +3,14 @@
 <!--***********************************************************************************-->
 
 <?php
+if (isset($_POST['language'])){ 
+	$_SESSION['language']=$_POST['language'];
+} 
+elseif (empty($_SESSION['language'])){
+	 $_SESSION['language']='es'; 
+}
 $id_show_company=1;
-include 'strings/strings_es.php';
+include 'strings/strings_'.$_SESSION['language'].'.php';
 ?>
 <head>
 	<meta charset='UTF-8'>

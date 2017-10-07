@@ -14,18 +14,18 @@
 		<?php
 		include 'header.php';
 		if (isset($_SESSION['s_user'])){
-			if (isset($_REQUEST['home'])){
+			if (isset($_GET['home'])){
 				unset($_SESSION['s_id_category']);
 				unset($_SESSION['s_id_subcategory']);
 			}
-			if (isset($_REQUEST['id_category'])){
-				$id_category=$_REQUEST['id_category'];
+			if (isset($_GET['id_category'])){
+				$id_category=$_GET['id_category'];
 				unset($_SESSION['s_id_subcategory']);
 				$_SESSION['s_id_category']=$id_category;
 			}
-			if (isset($_REQUEST['id_subcategoria'])){
-				$id_subcategoria=$_REQUEST['id_subcategoria'];
-				$_SESSION['s_id_subcategory']=$id_subcategoria;
+			if (isset($_GET['id_subcategory'])){
+				$id_subcategory=$_GET['id_subcategory'];
+				$_SESSION['s_id_subcategory']=$id_subcategory;
 			}
 		?>	
 			<nav>
@@ -41,7 +41,8 @@
 				</div>
 				<?php mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_category'], 'name'); 
 			}
-			if (isset($_SESSION['s_id_subcategory'])){ ?>
+			if (isset($_SESSION['s_id_subcategory'])){ 
+			?>
 				<div class='subcategories_section'>
 					<?php mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_subcategory'], 'name'); ?>
 				</div>
@@ -51,15 +52,9 @@
 			<?php
 			}
 		}
-		else{
-			?>
-			<div class='login_form'>
-				<?= $S_wrong_user ; ?><br>
-				<a href='index.php'><?= $S_try_again ; ?></a>
-			</div>
-		<?php	
-		}
-	include 'scripts.php';
-	?>
+		else
+			header('Location: index.php');
+		include 'scripts.php';
+		?>
 	</body>
 </html>

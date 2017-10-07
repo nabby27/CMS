@@ -39,28 +39,28 @@
 				</div>
 				<div class='general_picture'>
 					<?php mostrar('cms_article', 'id_article', 'id_article', $id_article, 'description'); ?>
-					<div class='section_pictures'>
+					<div class='picture_section'>
 						<?php
 						$cond = "SELECT id_picture, picture from cms_picture where id_article=$id_article";
 						$result = mysqli_query($link, $cond);
 						while ($row = mysqli_fetch_assoc($result)){
 							echo "<div class='picture'>";
 								echo "<a href='detail.php?picture=".$row['id_picture']."'><img src='./img/".$row['picture']."' style='width: 100%'></a>";
-							echo "</div>";
+							echo '</div>';
 						}
 						?>
 					</div>
 				</div>
-				<div class='section_links'>
+				<div class='link_section'>
 					<?php	
 					$cond = "SELECT link, name from cms_links where id_article=$id_article";
 					$result = mysqli_query($link, $cond);
-					echo "<hr>";
+					echo '<hr>';
 					while($row = mysqli_fetch_assoc($result)){
 						echo "<div class='links'>";
 							echo "<a target='_blank' href='".$row['link']."' >".$row['name']."</a>";
-						echo "</div>";
-						echo "<hr>";
+						echo '</div>';
+						echo '<hr>';
 					}
 					?>
 				</div>
@@ -84,20 +84,21 @@
 				<?php
 				$cond = "SELECT description, picture from cms_picture where id_picture=$id_picture";
 				$result = mysqli_query($link, $cond);
-				echo "<div class='container_picture'>";
+				echo "<div class='picture_container'>";
 					if($row = mysqli_fetch_assoc($result)){
 						echo "<div class='single_picture'>";
 							echo "<img src='./img/".$row['picture']."' style='width: 100%'>";
-						echo "</div>";
-						echo "<div class='picture_description'>";
+						echo '</div>';
+						echo "<div class='description_picture'>";
 							echo $row['description'];
-						echo "</div>";
+						echo '</div>';
 					}
 				?>
 				</div>
 			<?php }
-		}
-		header("Location: index.php"); ?>
+		}else
+			header('Location: index.php'); 
+		include 'scripts.php';
+		?>
 	</body>
-	<?php include 'scripts.php'; ?>
 </html>

@@ -54,5 +54,6 @@ $S_user = 'Usuario';
 $S_users = 'Usuarios';
 $S_username = 'Nombre de usuario';
 $S_username_or_email = 'Usuario o Email';
+$S_welcome = 'Bienvenido';
 $S_wrong_user = 'Usuario incorrecto';
 ?>
