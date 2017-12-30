@@ -2,12 +2,12 @@
 /*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
 /*--------------------------------------------------------------------------------------*/
 
-use CMS2;
+use CMS;
 
-INSERT INTO cms2_company (id_company, email, name, telephon, logo, header_picture, background_picture, address) VALUES
+INSERT INTO cms_company (id_company, email, name, telephon, logo, header_picture, background_picture, address) VALUES
 (1, 'empresa@ejemplo.com', 'Netflis', 963452313, 'logo.png', 'header.jpg', 'fondo.jpg','C/Falsa 123');
 
-INSERT INTO cms2_category (id_category_father, id_category, name, id_company) VALUES
+INSERT INTO cms_category (id_category_father, id_category, name, id_company) VALUES
 (0, 0, 'ninguna', 1),
 (0, 1, 'peliculas', 1),
 (0, 2, 'series', 1),
@@ -20,7 +20,7 @@ INSERT INTO cms2_category (id_category_father, id_category, name, id_company) VA
 (2, 9, 'drama', 1),
 (2, 10, 'anime', 1);
 
-INSERT INTO cms2_article (id_article, name, description, picture, id_category) VALUES
+INSERT INTO cms_article (id_article, name, description, picture, id_category) VALUES
 (1, 'Iron Man 3', 'El descarado y brillante empresario Tony Stark/Iron Man se enfrentará a un enemigo cuyo poder no conoce límites. Cuando Stark comprende que su enemigo ha destruido su universo personal, se embarca en una angustiosa búsqueda para encontrar a los responsables. Este viaje pondrá a prueba su entereza una y otra vez. Acorralado, Stark tendrá que sobrevivir por sus propios medios, confiando en su ingenio y su instinto para proteger a las personas que quiere.', 'iron_man_3.jpg', 3),
 (2, 'Capitán América: Civil War', 'Después de que otro incidente internacional involucre a Los Vengadores, causando varios daños colaterales, aumentan las presiones políticas para instaurar un sistema que exija más responsabilidades y que determine cuándo deben contratar los servicios del grupo de superhéroes. Esta nueva situación dividirá a Los Vengadores, mientras intentan proteger al mundo de un nuevo y terrible villano. Tercera entrega de la saga Capitán América.', 'capitan_america_civil_war.jpg', 3),
 (3, 'Batman: El Caballero Oscuro', 'Batman/Bruce Wayne (Christian Bale) regresa para continuar su guerra contra el crimen. Con la ayuda del teniente Jim Gordon (Gary Oldman) y del Fiscal del Distrito Harvey Dent (Aaron Eckhart), Batman se propone destruir el crimen organizado en la ciudad de Gotham. El triunvirato demuestra su eficacia, pero, de repente, aparece Joker (Heath Ledger), un nuevo criminal que desencadena el caos y tiene aterrados a los ciudadanos.', 'batman.jpg', 3),
@@ -51,7 +51,7 @@ INSERT INTO cms2_article (id_article, name, description, picture, id_category) V
 (21, 'Dragon Ball Super', 'Serie de TV (2015-Actualidad). Más de 70 episodios. Tras derrotar a Magin Boo, Goku y sus amigos tienen una vida de lo más pacífica: Goku ahora se dedica a la agricultura, aunque siempre encuentra un rato para seguir entrenando; Mister Satan se ha hecho famoso como gran salvador de la Humanidad; Trunks y Goten hacen cosas de niños; Goan y Videl se han casado; y Vegeta pasa unas vacaciones en familia. Pero algo que cambiará su destino está a punto de ocurrir. Mientras se reúnen para celebrar el cumpleaños de Bulma, el dios de la Destrucción ha despertado y se está dedicando a lo que mejor se le da: aniquilar planetas… y acaba de descubrir la Tierra. Una vez más, Goku necesitará la ayuda de sus amigos para convertirse en el legendario Super Saiyan y poder así derrotar al Dios de la Destrucción.', 'dragon.jpg', 10),
 (22, 'Detective Conan', 'Serie de TV (1996-Actualidad). Más de 680 episodios. Shinichi Kudo es un joven detective que consigue esclarecer cualquier misterio, por difícil que sea. Un día, nuestro protagonista descubre los maléficos planes de una peligrosa organización criminal y es envenenado. Sin embargo, el veneno no lo mata, sino que por accidente, lo encoge y lo convierte en un niño de apenas 6 años. Atrapado en este cuerpo, Shinichi, bajo el seudónimo de Conan Edogawa, deberá resolver los casos más difíciles mientras intenta encontrar un antídoto que lo devuelva a la normalidad y hacer lo posible para que su amiga, Ran Mouri, no sospeche quién es realmente el sabiondo Conan', 'conan.jpg', 10);
 
-INSERT INTO cms2_picture (id_picture, picture, description, id_article) VALUES
+INSERT INTO cms_picture (id_picture, picture, description, id_article) VALUES
 
 (1, 'iron-man(imagen1).jpg', '', 1),
 (2, 'iron-man(imagen2).jpeg', '', 1),
@@ -137,7 +137,7 @@ INSERT INTO cms2_picture (id_picture, picture, description, id_article) VALUES
 (61, 'conan(imagen1).jpg', '', 22),
 (62, 'conan(imagen2).jpg', '', 22);
 
-INSERT INTO cms2_links (id_link, name, link, id_article) VALUES
+INSERT INTO cms_links (id_link, name, link, id_article) VALUES
 
 (1, 'Trailer', 'https://www.youtube.com/watch?v=6Cl8PmVm3YE', 1),
 (2, 'Filmaffinity', 'http://www.filmaffinity.com/es/film973071.html', 1),
@@ -227,10 +227,10 @@ INSERT INTO cms2_links (id_link, name, link, id_article) VALUES
 (65, 'Filmaffinity', 'http://www.filmaffinity.com/es/film235504.html', 22),
 (66, 'Wikipedia', 'https://es.wikipedia.org/wiki/Detective_Conan', 22);
 
-INSERT INTO cms2_type_user (id_type, type_user) VALUES
+INSERT INTO cms_type_user (id_type, type_user) VALUES
 (1, 'administrador'),
 (2, 'usuario');
 
-INSERT INTO cms2_users (id_user, name, surname, email, telephon, address, password, id_type, id_company) VALUES
+INSERT INTO cms_users (id_user, name, surname, email, telephon, address, password, id_type, id_company) VALUES
 ('pepito24', 'Pepe', 'Garcia Garcia', 'pepe123@gmail.com', 964585296, 'C/De Mentira 555', '12345', 1, 1),
 ('ivan27', 'Ivan', 'Cordoba Donet', 'ivan27@gmail.com', 963485214, 'Av Sin name 111','12345', 2, 1);
