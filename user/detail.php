@@ -2,8 +2,6 @@
 <html lang='en'>
 	<?php
 	session_start();
-	include 'database_connection.php';
-	include 'functions.php';
 	include 'head.php';
 	?>
 	<body>
@@ -41,7 +39,7 @@
 						$result = mysqli_query($link, $cond);
 						while ($row = mysqli_fetch_assoc($result)){
 							echo "<div class='picture'>";
-								echo "<a href='detail.php?picture=".$row['id_picture']."'><img src='./img/".$row['picture']."' style='width: 100%'></a>";
+								echo "<a href='detail.php?picture=".$row['id_picture']."'><img src='../img/".$row['picture']."' style='width: 100%'></a>";
 							echo '</div>';
 						}
 						?>
@@ -83,7 +81,7 @@
 				echo "<div class='picture_container'>";
 					if($row = mysqli_fetch_assoc($result)){
 						echo "<div class='single_picture'>";
-							echo "<img src='./img/".$row['picture']."' style='width: 100%'>";
+							echo "<img src='../img/".$row['picture']."' style='width: 100%'>";
 						echo '</div>';
 						echo "<div class='description_picture'>";
 							echo $row['description'];
@@ -93,7 +91,7 @@
 				</div>
 			<?php }
 		}else
-			header('Location: index.php'); 
+			header('Location: ./index.php'); 
 		include 'scripts.php';
 		?>
 	</body>

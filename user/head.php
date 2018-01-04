@@ -1,12 +1,14 @@
 <?php
+include './database_connection.php';
+include './functions.php';
+include '../strings/strings_es.php';
 $id_show_company=1;
-include 'strings/strings_es.php';
 ?>
 <head>
 	<meta charset='UTF-8'>
 	<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 	<meta http-equiv='x-ua-compatible' content='ie=edge'> 
-	<link rel = 'icon' type='image/ico' href='./img/favicon.ico'/>
+	<link rel = 'icon' type='image/ico' href='../cms_img/favicon.ico'/>
 	<link href = './css/normalize.css' type='text/css' rel='stylesheet'>
 	<link href = './css/main_desingn.css' type='text/css' rel='stylesheet'>
 	<title>

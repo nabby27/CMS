@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html lang='en'>
 	<?php
-	include 'database_connection.php';
-	include 'functions.php';
 	include 'head.php';
 	?>
 	<body>
@@ -49,7 +47,7 @@
 			}
 		}
 		else
-			header('Location: index.php');
+			header('Location: ./index.php');
 		include 'scripts.php';
 		?>
 	</body>

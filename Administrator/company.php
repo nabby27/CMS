@@ -21,7 +21,7 @@ echo "<html lang='en'>";
 				$id_company=$_REQUEST['id_company'];
 
 				if (is_uploaded_file($_FILES['picture']['tmp_name'][0])){
-					$nameDirectory="../img/";
+					$nameDirectory="../cms_img/";
 					$idUnique = time();
 					$nameFile = $idUnique."-".$_FILES['picture']['name'][0];
 					move_uploaded_file($_FILES['picture']['tmp_name'][0], $nameDirectory.$nameFile);
@@ -31,7 +31,7 @@ echo "<html lang='en'>";
 					$logo=$_REQUEST['logo_ant'];
 				}
 				if (is_uploaded_file($_FILES['picture']['tmp_name'][1])){
-					$nameDirectory="../img/";
+					$nameDirectory="../cms_img/";
 					$idUnique = time();
 					$nameFile = $idUnique."-".$_FILES['picture']['name'][1];
 					move_uploaded_file($_FILES['picture']['tmp_name'][1], $nameDirectory.$nameFile);
@@ -41,7 +41,7 @@ echo "<html lang='en'>";
 					$header_picture=$_REQUEST['header_picture_ant'];
 				}
 				if (is_uploaded_file($_FILES['picture']['tmp_name'][2])){
-					$nameDirectory="../img/";
+					$nameDirectory="../cms_img/";
 					$idUnique = time();
 					$nameFile = $idUnique."-".$_FILES['picture']['name'][2];
 					move_uploaded_file($_FILES['picture']['tmp_name'][2], $nameDirectory.$nameFile);

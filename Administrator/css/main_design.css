@@ -35,13 +35,13 @@ table{
 	color: black;
 }
 
-.formulario_inicio_sesion .boton{
+.login_form .boton{
 	border-radius: 15px;
 	background: #d2ecf9;
 	color:#253b6e;
 }
 
-.formulario_inicio_sesion .boton:hover{
+.login_form .boton:hover{
 	border-radius: 15px;
 	background: #1f5f8b;
 	color:#d2ecf9;
@@ -52,7 +52,7 @@ body{
 	color: #d2ecf9;
 }
 
-.cabecera{
+.header{
 	height: 125px;
 	right: 0px;
 	position: relative;
@@ -60,12 +60,12 @@ body{
 	background: #253b6e;
 }
 
-.cabecera .nombre_empresa a{
+.header .company_name a{
 	text-decoration: none;
 	color: white;
 }
 
-.cabecera .nombre_empresa{
+.header .company_name{
 	bottom: 20%;
 	font-size: 300%;
 	height: 50%;
@@ -77,7 +77,7 @@ body{
 	width: 50%;
 }
 
-.cabecera .logo_empresa{
+.header .logo_company{
 	background: blue;
 	bottom: 0px;
 	height: 100px;
@@ -88,7 +88,7 @@ body{
 	text-decoration: none;
 }
 
-.cabecera .sesion{
+.header .session{
 	background: #1891ac;
 	color:  #253b6e;
 	position: absolute;
@@ -99,16 +99,16 @@ body{
 	padding: 10px;
 }
 
-.cabecera .sesion a{
+.header .session a{
 	text-decoration: none;
 	color: #253b6e;
 }
 
-.cabecera .sesion:hover{
+.header .session:hover{
 	background-color:#d2ecf9;
 }
 
-body .formulario_inicio_sesion {
+body .login_form {
 	background: #d2ecf9;
 	color: #253b6e;
 	text-align: center;
@@ -121,7 +121,7 @@ body .formulario_inicio_sesion {
 	position: relative;
 }
 
-body .formulario_empresa {
+body .form_company {
 	background: #d2ecf9;
 	color: #253b6e;
 	text-align: center;

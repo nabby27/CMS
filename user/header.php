@@ -3,7 +3,7 @@
 	$cond = "SELECT background_picture from cms_company where id_company=$id_show_company";
 	$result = mysqli_query($link, $cond);
 	if($row = mysqli_fetch_array($result)){
-		echo "<img alt='full screen background image' src='./img/".$row['background_picture']."' id='full_screen_background_image' />";
+		echo "<img alt='full screen background image' src='../cms_img/".$row['background_picture']."' id='full_screen_background_image' />";
 	}
 	?>
 	<div class='header'>
@@ -11,7 +11,7 @@
 		$cond = "SELECT header_picture from cms_company where id_company=$id_show_company";
 		$result = mysqli_query($link, $cond);
 		if($row = mysqli_fetch_array($result)){
-			echo "<img src='./img/".$row['header_picture']."' style='width: 100%; height: 100%'>";
+			echo "<img src='../cms_img/".$row['header_picture']."' style='width: 100%; height: 100%'>";
 		}
 		?>	
 		<div class='company_name'><h1>
@@ -28,7 +28,7 @@
 			$cond = "SELECT logo from cms_company where id_company=$id_show_company";
 			$result = mysqli_query($link, $cond);
 			if($row = mysqli_fetch_array($result)){
-				echo "<img src='./img/".$row['logo']."' style='width: 100%; height: 100%'>";
+				echo "<img src='../cms_img/".$row['logo']."' style='width: 100%; height: 100%'>";
 			}
 			?>
 		</div>

@@ -23,9 +23,12 @@ echo "<html lang='en'>";
 				}
 				else{
 					$cond="UPDATE cms_picture set description='".$description."', id_article=".$id_article." where id_picture=".$id_picture."";
+					$cond2="DELETE * FROM cms_picture where picture = $_FILES['picture']['name']";
 				}
 				if($result=mysqli_query($link, $cond)){
-					header("Location:pictures.php?id_article=".$article."");
+					if ($result2 = mysqli_query($link, $cond2)){
+						header("Location:pictures.php?id_article=".$article."");
+					}
 				}
 			}
 			elseif(isset($_REQUEST['id_picture'])){

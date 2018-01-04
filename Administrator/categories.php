@@ -10,7 +10,7 @@ echo "<html lang='en'>";
 		if (empty($_REQUEST['id_category'])){
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='main.php'>"$S_home"</li></a>";
+					echo "<li><a href='main.php'>$S_home</li></a>";
 				echo "</ul>";
 			echo "</nav>";
 		}
@@ -23,13 +23,13 @@ echo "<html lang='en'>";
 				if ($result=mysqli_query($link, "UPDATE cms_category set name='".$name."', id_category_father='".$id_category_father."' where id_category=".$id_category."")){
 					echo "<div class='login_form'>";
 						echo "<br>";
-						echo "<a href='categories.php'>"$S_back"</a>";
+						echo "<a href='categories.php'>$S_back</a>";
 					echo "</div>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo $S_update_failed"<br>";
-						echo "<a href='categories.php?namea=a'>"$S_back"</a>";
+						echo "$S_update_failed<br>";
+						echo "<a href='categories.php?namea=a'>$S_back</a>";
 					echo "</div>";
 				}
 			}
@@ -60,7 +60,7 @@ echo "<html lang='en'>";
 							}
 						echo "</select><br><br>";
 						echo "name: <br><br><input type='text' name='name'><br><br>";
-						echo "<input type='submit' name='send' value="$S_save_changes"><br>";
+						echo "<input type='submit' name='send' value=".$S_save_changes."><br>";
 						echo "<input type='hidden' name='id_category' value=".$max.">";
 					echo "</form>";
 				}
@@ -70,7 +70,7 @@ echo "<html lang='en'>";
 					$c="";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='categories.php?add_father=".$id_category_father."'>"$S_add"</a></li>";
+							echo "<li><a href='categories.php?add_father=".$id_category_father."'>".$S_add."</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
@@ -94,7 +94,7 @@ echo "<html lang='en'>";
 					$c="0";
 					echo "<nav>";
 						echo "<ul>";
-							echo "<li><a href='categories.php?add_father=".$c."'>"$S_add"</a></li>";
+							echo "<li><a href='categories.php?add_father=".$c."'>".$S_add."</a></li>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){

@@ -1,8 +1,7 @@
 <?php
-include 'database_connection.php';
-include 'functions.php';
 include 'head.php';
 if (isset($_POST['send'])){
+	include 'header.php';
 	$user=$_POST['user'];
 	$name=$_POST['name'];
 	$surname=$_POST['surname'];
@@ -23,7 +22,7 @@ if (isset($_POST['send'])){
 ?>
 			<div class='login_form'>
 				<?=	$S_registered_user_correctly.' '.$user.'<br><br>'; ?>
-				<?= "<a href='index.php'>".$S_log_in.'</a>'; ?>
+				<?= "<a href='./index.php'>".$S_log_in.'</a>'; ?>
 			</div>
 		<?php
 		}
@@ -52,7 +51,7 @@ else{
 		<body>
 			<?php include 'header.php'; ?>
 			<div class='container_sign_up'>
-				<a href='index.php'><div class='sign_up'>
+				<a href='../index.php'><div class='sign_up'>
 					<?= $S_log_in; ?>
 				</div></a>
 			</div>
@@ -63,7 +62,7 @@ else{
 						<?= '<legend>'.$S_personal_data.'</legend>'; ?>
 						<?= $S_name."*:<br><input type='text' name='name' placeholder='".$S_name."' required><br><br>"; ?>
 						<?= $S_surname.":<br><input type='text' name='surname' placeholder='".$S_surname."'><br><br>"; ?>
-						<?= $S_email."*:<br><input type='text' name='email' placeholder='".$S_email."' pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' required><br><br>"; ?>
+						<?= $S_email."*:<br><input type='email' name='email' placeholder='".$S_email."' required><br><br>"; ?>
 						<?= $S_telephon.":<br><input type='number' name='telephon' placeholder='".$S_telephon."'><br><br>"; ?>
 						<?= $S_address.":<br><input type='text' name='address' placeholder='".$S_address."'><br><br>"; ?>
 					</fieldset>

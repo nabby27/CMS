@@ -1,5 +1,5 @@
 <?php 
-include 'database_connection.php'; 
+include './database_connection.php'; 
 if (isset($_SESSION['s_user'])){
 	function mostrar($table, $id, $field, $value, $field_show){
 		global $link;
@@ -33,7 +33,7 @@ if (isset($_SESSION['s_user'])){
 				else{
 					$parameter="id_article=".$row[$id]."";
 					echo "<div class='general_section'>";
-						echo "<div class='picture_section'><img src='./img/".$row['picture']."' style='width: 100%; height: 100%'></div>";
+						echo "<div class='picture_section'><img src='../img/".$row['picture']."' style='width: 100%; height: 100%'></div>";
 						if($field!='id_article'){
 							echo "<a href='detail.php?".$parameter."'><div class='name_section'>".$row[$field_show]."</div></a>";
 						}

@@ -20,7 +20,7 @@ else{
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo $S_wrong_user"<br>";
+						echo "$S_wrong_user<br>";
 					echo "</div>";
 					header( "Refresh:3; index.php");
 				}
@@ -29,9 +29,9 @@ else{
 				echo "<div class='login_form'>";	
 					echo "<form action='index.php'>";
 						echo "<fieldset>";
-							echo "<legend>"$S_administrator_login"</legend>";
-							echo $S_username_or_email":<br><input type='text' name='name'><br><br>";
-							echo $S_password":<br><input type='passwordword' name='password'><br><br>";
+							echo "<legend>$S_administrator_login</legend>";
+							echo "$S_username_or_email:<br><input type='text' name='name'><br><br>";
+							echo "$S_password:<br><input type='password' name='password'><br><br>";
 							echo "<input class='boton' type='submit' name='send' value='Iniciar sesión'><br>";
 						echo "</fieldset>";
 					echo "</form>";
