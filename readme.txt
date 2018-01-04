@@ -10,5 +10,3 @@
      5-Enter the test data that are in the same folder, in the same way as with the structure
      6-Enter the different pages (localhost / CMS) (localhost / CMS / Administrator)
      7-User with privileges is pepito24 password 12345
-
-
