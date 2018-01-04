@@ -199,14 +199,15 @@ nav ul li a:hover{
 	border-radius: 15px;
 }
 
-.seccion_subcategorias{
+.section_subcategories{
 	width: 100%;
 	height: 50px;
 	float:left;
 	margin-top: 20px;
+	margin-bottom: 20px; 
 }
 
-.subcategorias {
+.subcategories {
 	float:left;
 	width: 20%;
 	margin-top: 50px;
@@ -222,11 +223,11 @@ nav ul li a:hover{
 	position: relative;
 }
 
-.subcategorias:hover{
+.subcategories:hover{
 	background-color:#d2ecf9;
 }
 
-.subcategorias a{
+.subcategories a{
 	color:#253b6e;
 	text-decoration:none;
 }
@@ -358,7 +359,7 @@ body .titulo{
 	border-radius: 15px;
 }
 
-body .formulario_articulos {
+body .form_articulos {
 	background: #d2ecf9;
 	color: #253b6e;
 	position: absolute;
@@ -390,7 +391,7 @@ body .formulario_articulos {
 	color: white;
 }
 
-.papelera {
+.trash {
 	margin-top: 57px;
 	margin-right: 25%;
 	margin-left: 5%;
@@ -399,11 +400,11 @@ body .formulario_articulos {
 	height: 20px;
 }
 
-.papelera a{
+.trash a{
 	text-decoration: none;
 }
 
-.papelera2 {
+.trash2 {
 	margin-top: 10px;
 	margin-right: 25%;
 	margin-left: 25%;
@@ -412,7 +413,7 @@ body .formulario_articulos {
 	height: 20px;
 }
 
-.papelera2 a{
+.trash2 a{
 	text-decoration: none;
 }
 
@@ -422,17 +423,17 @@ body .formulario_articulos {
 	color: white;
 }
 
-.lapiz {
+.pencil {
 	margin-left: -19%;
 	display: inline-block;
 	width: 20px;
 	height: 20px;
 }
-.lapiz a{
+.pencil	 a{
 	text-decoration: none;
 }
 
-.seccion_fotos_formulario{
+.section_pictures_form{
 	background: #1891ac;
 	display: inline-block;
 	margin-left: 10%;
@@ -443,7 +444,7 @@ body .formulario_articulos {
 	padding: 10px;
 	float:left;
 }
-.foto_formulario{
+.picture_form{
 	background: #253b6e;
 	display: inline-block;
 	margin-left: 5%;
@@ -454,7 +455,7 @@ body .formulario_articulos {
 	border-radius: 15px; 
 }
 
-.foto_formulario23{
+.picture_form_23{
 	background: #253b6e;
 	display: inline-block;
 	margin-left: 25%;
@@ -465,7 +466,7 @@ body .formulario_articulos {
 	border-radius: 15px; 
 }
 
-body .nombre_seccion{
+body .section_name{
 	width: 80%;
 	margin-left: 10%;
 	text-align: center;

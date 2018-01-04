@@ -2,15 +2,13 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
-	include 'database_connection.php';
-	include 'functions.php';
 	include 'head.php';
 	echo "<body>";
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
 			echo "<nav>";
 				echo "<ul>";
-					echo "<li><a href='main.php'>"$S_home"</li></a>";
+					echo "<li><a href='main.php'>".$S_home."</li></a>";
 				echo "</ul>";
 			echo "</nav>";
 			if(isset($_REQUEST['send'])){
@@ -55,17 +53,17 @@ echo "<html lang='en'>";
 			$result=mysqli_query($link, "SELECT * from cms_company");
 			while($row=mysqli_fetch_assoc($result)){
 				echo "<form action='company.php' method='POST' class='form_company' enctype='multipart/form-data'>"; 
-					echo $S_name": <br><br><input type='text' name='name' value='".$row['name']."'><br><br>";
-					echo $S_email": <br><br><input type='text' name='email' value='".$row['email']."'><br><br>";
-					echo $S_telephon": <br><br><input type='number' name='telephon' value='".$row['telephon']."'><br><br>";
-					echo $S_address": <br><br><input type='text' name='address' value='".$row['address']."'><br><br>";
-					echo $S_logo": <br><br><img src='../img/".$row['logo']."'><br><br>";
+					echo $S_name.": <br><br><input type='text' name='name' value='".$row['name']."'><br><br>";
+					echo $S_email.": <br><br><input type='text' name='email' value='".$row['email']."'><br><br>";
+					echo $S_telephon.": <br><br><input type='number' name='telephon' value='".$row['telephon']."'><br><br>";
+					echo $S_address.": <br><br><input type='text' name='address' value='".$row['address']."'><br><br>";
+					echo $S_logo.": <br><br><img src='../cms_img/".$row['logo']."'><br><br>";
 					echo "<input type='file' name='picture[]'><br><br>";
-					echo $S_header": <br><br><img src='../img/".$row['header_picture']."' style='width: 100%'>";
+					echo $S_header.": <br><br><img src='../cms_img/".$row['header_picture']."' style='width: 100%'>";
 					echo "<input type='file' name='picture[]'><br><br>";
-					echo $S_background": <br><br><img src='../img/".$row['background_picture']."' style='width: 100%'>";
+					echo $S_background.": <br><br><img src='../cms_img/".$row['background_picture']."' style='width: 100%'>";
 					echo "<input type='file' name='picture[]'><br><br>";
-					echo "<input type='submit' name='send' value="$S_save_changes"><br>";
+					echo "<input type='submit' name='send' value=".$S_save_changes."><br>";
 					echo "<input type='hidden' name='id_company' value='".$row['id_company']."'>";
 					echo "<input type='hidden' name='logo_ant' value='".$row['logo']."'>";
 					echo "<input type='hidden' name='header_picture_ant' value='".$row['header_picture']."'>";

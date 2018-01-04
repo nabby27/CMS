@@ -6,7 +6,6 @@ if (isset($_SESSION['s_admin'])){
 else{
 	echo "<!DOCTYPE html>";
 	echo "<html lang='en'>";
-		include 'database_connection.php';
 		include 'head.php';
 		echo "<body>";
 			include 'header.php';

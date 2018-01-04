@@ -2,8 +2,6 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
-	include 'database_connection.php';
-	include 'functions.php';
 	include 'head.php';
 	echo "<body>";
 		include 'header.php';
@@ -24,16 +22,16 @@ echo "<html lang='en'>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo $S_password_does_not_match"<br>";
-						echo "<a href='users.php?id_user='".$id_user."''>"$S_back"</a>";
+						echo $S_password_does_not_match."<br>";
+						echo "<a href='users.php?id_user='".$id_user."''>".$S_back."</a>";
 					echo "</div>";
 				}
 			}
 			elseif(isset($_REQUEST['id_user'])){
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='main.php'>"$S_home"</a></li>";
-						echo "<li><a href='users.php'>"$S_back"</a></li>";
+						echo "<li><a href='main.php'>".$S_home."</a></li>";
+						echo "<li><a href='users.php'>".$S_back."</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				$id_user=$_REQUEST['id_user'];
@@ -41,38 +39,38 @@ echo "<html lang='en'>";
 				$row=mysqli_fetch_assoc($result);
 				echo "<div class='login_form'>";	
 					echo "<form action='users.php'>";
-						echo $S_update_users"<br><br>";
+						echo $S_update_users."<br><br>";
 						echo "<fieldset>";
-						echo "<legend>"$S_personal_data"</legend>";
-						echo $S_name"*:<br><input type='text' name='name' placeholder="$S_name" value='".$row['name']."' required><br><br>";
-						echo $S_surname":<br><input type='text' name='surname' placeholder="$S_surname" value='".$row['surname']."'><br><br>";
-						echo $S_email"*:<br><input type='text' name='email' placeholder="$S_email" pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' value=".$row['email']." required><br><br>";
-						echo $S_telephon":<br><input type='number' name='telephon' placeholder="$S_telephon" value=".$row['telephon']."><br><br>";
-						echo $S_address":<br><input type='text' name='address' placeholder="$S_address" value='".$row['address']."'><br><br>";
+						echo "<legend>".$S_personal_data."</legend>";
+						echo $S_name."*:<br><input type='text' name='name' placeholder=".$S_name." value='".$row['name']."' required><br><br>";
+						echo $S_surname.":<br><input type='text' name='surname' placeholder=".$S_surname." value='".$row['surname']."'><br><br>";
+						echo $S_email."*:<br><input type='text' name='email' placeholder=".$S_email." pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}' value=".$row['email']." required><br><br>";
+						echo $S_telephon.":<br><input type='number' name='telephon' placeholder=".$S_telephon." value=".$row['telephon']."><br><br>";
+						echo $S_address.":<br><input type='text' name='address' placeholder=".$S_address." value='".$row['address']."'><br><br>";
 					echo "</fieldset>";
 					echo "<fieldset>";
-						echo "<legend>"$S_account_data"</legend>";
-						echo $S_username"*:<br>".$row['id_user']."<br><br>";
-						echo $S_password"*:<br><input type='password' name='password' placeholder="$S_password" pattern='[a-zA-Z0-9]{5,16}' value=".$row['contraseña']." required><br><br>";
-						echo $S_repeat_password"*:<br><input type='password' name='password2' placeholder="$S_password" value=".$row['contraseña']." required><br><br>";
+						echo "<legend>".$S_account_data."</legend>";
+						echo $S_username."*:<br>".$row['id_user']."<br><br>";
+						echo $S_password."*:<br><input type='password' name='password' placeholder=".$S_password." pattern='[a-zA-Z0-9]{5,16}' value=".$row['password']." required><br><br>";
+						echo $S_repeat_password."*:<br><input type='password' name='password2' placeholder=".$S_password." value=".$row['password']." required><br><br>";
 					echo "</fieldset><br><br>";
-					echo "<input class='boton' type='submit' name='send' value="$S_update"><br><br>";
+					echo "<input class='boton' type='submit' name='send' value=".$S_update."><br><br>";
 					echo "<input type='hidden' name='id_user' value='".$row['id_user']."'>";
-					echo "* "$S_required_fields;
+					echo "* ".$S_required_fields;
 				echo "</form>";
 			echo "</div>";
 			}
 			else{
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='main.php'>"$S_home"</a></li>";
-						echo "<li><a href='add_users.php'>"$S_add"</a></li>";
+						echo "<li><a href='main.php'>".$S_home."</a></li>";
+						echo "<li><a href='add_users.php'>".$S_add."</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				$contador=0;
 				$result=mysqli_query($link, "SELECT * from cms_users, cms_type_user where cms_users.id_type=cms_type_user.id_type");
 				echo "<table border=1>";
-				echo "<tr><td>"$S_user"</td><td>"$S_name"</td><td>"$S_surname"</td><td>"$S_email"</td><td>"$S_telephon"</td><td>"$S_address"</td><td>"$S_password"</td><td>"$S_type"</td><td>"$S_edit"</td><td>"$S_edit"</td></tr>";
+				echo "<tr><td>".$S_user."</td><td>".$S_name."</td><td>".$S_surname."</td><td>".$S_email."</td><td>".$S_telephon."</td><td>".$S_address."</td><td>".$S_password."</td><td>".$S_type."</td><td>".$S_edit."</td><td>".$S_edit."</td></tr>";
 				while($row=mysqli_fetch_assoc($result)){
 					$contador+=1;
 					if ($contador%2==0){
@@ -89,7 +87,7 @@ echo "<html lang='en'>";
 					echo "<td>".$row['telephon']."</td>";
 					echo "<td>".$row['address']."</td>";
 					echo "<td>*****</td>";
-					echo "<td>".$row['tipo_user']."</td>";
+					echo "<td>".$row['type_user']."</td>";
 					echo "<td>";
 						echo "<div class='pencil2'>";
 							echo "<a width='0px' href='users.php?id_user=".$row['id_user']."'>";

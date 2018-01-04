@@ -2,8 +2,6 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
-	include 'database_connection.php';
-	include 'functions.php';
 	include 'head.php';
 	echo "<body>";
 		include 'header.php';
@@ -26,8 +24,8 @@ echo "<html lang='en'>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo $S_elimination_failed"<br>";
-						echo "<a href='categories.php'>"$S_try_again"</a>";
+						echo $S_elimination_failed."<br>";
+						echo "<a href='categories.php'>".$S_try_again."</a>";
 					echo "</div>";
 				}
 			}
@@ -45,8 +43,8 @@ echo "<html lang='en'>";
 				}
 				else{
 					echo "<div class='login_form'>";
-						echo $S_elimination_failed"<br>";
-						echo "<a href='articles.php'>"$S_try_again"</a>";
+						echo $S_elimination_failed."<br>";
+						echo "<a href='articles.php'>".$S_try_again."</a>";
 					echo "</div>";
 				}
 			}

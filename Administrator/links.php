@@ -2,8 +2,6 @@
 session_start();
 echo "<!DOCTYPE html>";
 echo "<html lang='en'>";
-	include 'database_connection.php';
-	include 'functions.php';
 	include 'head.php';
 	echo "<body>";
 		include 'header.php';
@@ -24,16 +22,16 @@ echo "<html lang='en'>";
 				echo "<div class='section_name'>".$row['name']."</div>";
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='links.php?id_article=$id_article'>"$S_back"</a></li>";
-						echo "<li><a href='add_links.php?id_article=$id_article'>"$S_add"</a></li>";
+						echo "<li><a href='links.php?id_article=$id_article'>".$S_back."</a></li>";
+						echo "<li><a href='add_links.php?id_article=$id_article'>".$S_add."</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				echo "<div class='section_pictures_form'>";
 					$result = mysqli_query($link, "SELECT * from cms_links where id_link=$id_link");
 					while($row = mysqli_fetch_assoc($result)){
-						echo "<div class='picture_form23'>";
+						echo "<div class='picture_form_23'>";
 							echo "<form action='links.php?id_article=$id_article' method='POST' enctype='multipart/form-data'>";
-								echo $S_text_to_show":<br><br><input type='text' name='name' size='30' value='".$row['name']."'><br><br>";
+								echo $S_text_to_show.":<br><br><input type='text' name='name' size='30' value='".$row['name']."'><br><br>";
 								echo "link:<br><br><input type='text' size='60' name='link' value='".$row['link']."'><br><br>";
 								echo "article:<br><br>";
 								$result2=mysqli_query($link, "SELECT * from cms_article");
@@ -47,7 +45,7 @@ echo "<html lang='en'>";
 										}
 									}
 								echo "</select><br><br>";
-								echo "<input type='submit' name='send' value="$S_save_changes"><br><br>";
+								echo "<input type='submit' name='send' value=".$S_save_changes."><br><br>";
 								echo "<div class='trash2'>";
 									echo "<a width='0px' href='delete.php?id_link=".$row['id_link']."'>";
 										echo "<div class='icon-basura'></div>";
@@ -67,8 +65,8 @@ echo "<html lang='en'>";
 				echo "<div class='section_name'>".$row['name']."</div>";
 				echo "<nav>";
 					echo "<ul>";
-						echo "<li><a href='articles.php?id_article=$id_article'>"$S_back"</a></li>";
-						echo "<li><a href='add_links.php?id_article=$id_article'>"$S_add"</a></li>";
+						echo "<li><a href='articles.php?id_article=$id_article'>".$S_back."</a></li>";
+						echo "<li><a href='add_links.php?id_article=$id_article'>".$S_add."</a></li>";
 					echo "</ul>";
 				echo "</nav>";
 				echo "<div class='section_pictures_form'>";
@@ -76,8 +74,9 @@ echo "<html lang='en'>";
 					$result = mysqli_query($link, $cond);
 					while($row = mysqli_fetch_assoc($result)){
 						echo "<div class='picture_form'>";
-							echo "name a mostrar:<br><br><input type='text' name='name' size='30' value='".$row['name']."'><br><br>";
-								echo "<div class='boton2'><a href='links.php?id_link=".$row['id_link']."&id_article=".$id_article."'>EDITAR</a></div>";
+							echo $S_name_to_show.":<br><br>".$row['name']."<br><br>";
+							echo $S_link_to_show.":<br><br>".$row['link']."<br><br>";
+							echo "<div class='boton2'><a href='links.php?id_link=".$row['id_link']."&id_article=".$id_article."'>".$S_edit."</a></div>";
 						echo "</div>";
 					}
 				echo "</div>";
