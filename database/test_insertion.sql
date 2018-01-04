@@ -1,7 +1,3 @@
-/*--------------------------------------------------------------------------------------*/
-/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
-/*--------------------------------------------------------------------------------------*/
-
 use CMS;
 
 INSERT INTO cms_company (id_company, email, name, telephon, logo, header_picture, background_picture, address) VALUES

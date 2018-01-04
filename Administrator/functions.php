@@ -1,7 +1,4 @@
 <?php
-/*--------------------------------------------------------------------------------------*/
-/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
-/*--------------------------------------------------------------------------------------*/
 include 'database_connection.php';
 if (isset($_SESSION['s_admin'])){
 	function mostrar($table, $id, $field, $value, $show_field){

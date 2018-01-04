@@ -1,7 +1,3 @@
-<!--***********************************************************************************-->
-<!--************created by Iván Córdoba Donet ivancordoba77@gmail.com******************-->
-<!--***********************************************************************************-->
-
 <header>
 	<?php
 	$cond = "SELECT background_picture from cms_company where id_company=$id_show_company";

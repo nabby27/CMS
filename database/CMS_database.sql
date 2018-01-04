@@ -1,7 +1,3 @@
-/*--------------------------------------------------------------------------------------*/
-/*----------------created by Iván Córdoba Donet ivancordoba77@gmail.com-----------------*/
-/*--------------------------------------------------------------------------------------*/
-
 DROP DATABASE IF EXISTS CMS;
 
 CREATE DATABASE CMS CHARACTER SET utf8 COLLATE utf8_general_ci;
