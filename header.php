@@ -32,16 +32,6 @@
 			}
 			?>
 		</div>
-		<div class='language'>
-			<form action='#' method='post'>
-				<select name='language'>	
-					<option value='es' <?php if($_SESSION['language']=='es'){echo 'selected';}; ?>>ES</option>
-					<option value='en' <?php if($_SESSION['language']=='en'){echo 'selected';}; ?>>EN</option>
-					<?= "<input type='submit' name='send_language' value='".$S_save_changes."''>" ?>
-				</select>
-
-			</form>
-		</div>	
 		<div class='session'>
 			<?php
 			if (isset($_SESSION['s_user'])){

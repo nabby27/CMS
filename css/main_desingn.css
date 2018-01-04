@@ -57,7 +57,7 @@ body{
 }
 
 .header .company_name{
-	bottom: 20px;
+	top: -60px;
 	font-size: 300%;
 	height: 50%;
 	margin-left: 26%;
