@@ -1,11 +1,9 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang='en'>
-	<?php
+<?php
+session_start(); 
+echo '<!DOCTYPE html>';
+echo '<html lang="en">';
 	include 'head.php';
-	?>
-	<body>
-		<?php
+	echo '<body>';
 		include 'header.php';
 		if (isset($_SESSION['s_user'])){
 			if (isset($_GET['home'])){
@@ -21,34 +19,29 @@
 				$id_subcategory=$_GET['id_subcategory'];
 				$_SESSION['s_id_subcategory']=$id_subcategory;
 			}
-		?>	
-			<nav>
-				<ul>
-					<?php mostrar('cms_category', 'id_category', 'id_category_father', 0, 'name'); ?>
-				</ul>
-			</nav>
-			<?php
+			echo '<nav>';
+				echo '<ul>';
+					mostrar('cms_category', 'id_category', 'id_category_father', 0, 'name');
+				echo '</ul>';
+			echo '</nav>';
 			if (isset($_SESSION['s_id_category'])){	
-			?>
-				<div class='subcategories_section'>
-					<?php mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_category'], 'name'); ?>
-				</div>
-				<?php mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_category'], 'name'); 
+				echo '<div class="subcategories_section">';
+					 mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_category'], 'name'); 
+				echo '</div>';
+				mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_category'], 'name'); 
 			}
 			if (isset($_SESSION['s_id_subcategory'])){ 
-			?>
-				<div class='subcategories_section'>
-					<?php mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_subcategory'], 'name'); ?>
-				</div>
-				<div class='general_picture'>
-					<?php mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_subcategory'], 'name'); ?>
-				</div>
-			<?php
+				echo '<div class="subcategories_section">';
+					mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_subcategory'], 'name');
+				echo '</div>';
+				echo '<div class="general_picture">';
+					mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_subcategory'], 'name');
+				echo '</div>';
 			}
 		}
 		else
 			header('Location: ./index.php');
 		include 'scripts.php';
-		?>
-	</body>
-</html>
+	echo '</body>';
+echo '</html>';
+?>

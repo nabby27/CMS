@@ -31,14 +31,14 @@ if (isset($_SESSION['s_user'])){
 					}
 				}
 				else{
-					$parameter="id_article=".$row[$id]."";
-					echo "<div class='general_section'>";
+					$parameter='id_article='.$row[$id];
+					echo '<div class="general_section">';
 						echo "<div class='picture_section'><img src='../img/".$row['picture']."' style='width: 100%; height: 100%'></div>";
 						if($field!='id_article'){
 							echo "<a href='detail.php?".$parameter."'><div class='name_section'>".$row[$field_show]."</div></a>";
 						}
 						else{
-							echo "<div class='description_section'>".$row[$field_show]."</div>";
+							echo '<div class="description_section">'.$row[$field_show].'</div>';
 						}
 					echo '</div>';
 				}
