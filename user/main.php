@@ -21,21 +21,21 @@ echo '<html lang="en">';
 			}
 			echo '<nav>';
 				echo '<ul>';
-					mostrar('cms_category', 'id_category', 'id_category_father', 0, 'name');
+					show('cms_category', 'id_category', 'id_category_father', 0, 'name');
 				echo '</ul>';
 			echo '</nav>';
 			if (isset($_SESSION['s_id_category'])){	
 				echo '<div class="subcategories_section">';
-					 mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_category'], 'name'); 
+					 show('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_category'], 'name'); 
 				echo '</div>';
-				mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_category'], 'name'); 
+				show('cms_article', 'id_article', 'id_category', $_SESSION['s_id_category'], 'name'); 
 			}
 			if (isset($_SESSION['s_id_subcategory'])){ 
 				echo '<div class="subcategories_section">';
-					mostrar('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_subcategory'], 'name');
+					show('cms_category', 'id_category', 'id_category_father', $_SESSION['s_id_subcategory'], 'name');
 				echo '</div>';
 				echo '<div class="general_picture">';
-					mostrar('cms_article', 'id_article', 'id_category', $_SESSION['s_id_subcategory'], 'name');
+					show('cms_article', 'id_article', 'id_category', $_SESSION['s_id_subcategory'], 'name');
 				echo '</div>';
 			}
 		}

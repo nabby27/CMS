@@ -1,7 +1,7 @@
 <?php 
 include './database_connection.php'; 
 if (isset($_SESSION['s_user'])){
-	function mostrar($table, $id, $field, $value, $field_show){
+	function show($table, $id, $field, $value, $field_show){
 		global $link;
 		if(isset($_SESSION['s_id_category'])){
 			$class='press';

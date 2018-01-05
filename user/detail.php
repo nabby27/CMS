@@ -27,7 +27,7 @@ echo '<html lang="en">';
 					}
 				echo '</div>';
 				echo '<div class="general_picture">';
-					mostrar('cms_article', 'id_article', 'id_article', $id_article, 'description'); 
+					show('cms_article', 'id_article', 'id_article', $id_article, 'description'); 
 					echo '<div class="picture_section">';
 						$cond = 'SELECT id_picture, picture from cms_picture where id_article = '.$id_article;
 						$result = mysqli_query($link, $cond);
