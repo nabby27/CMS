@@ -48,7 +48,7 @@ echo "<html lang='en'>";
 								echo "<input type='submit' name='send' value=".$S_save_changes."><br><br>";
 								echo "<div class='trash2'>";
 									echo "<a width='0px' href='delete.php?id_link=".$row['id_link']."'>";
-										echo "<div class='icon-basura'></div>";
+										echo '<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>';
 									echo "</a>";
 								echo "</div>";
 								echo "<input type='hidden' name='id_link' value=".$row['id_link'].">";

@@ -342,6 +342,7 @@ body .titulo{
 	color: #1891ac;
 	border-radius: 15px;
 }
+
 .seccion_fotos .foto{
 	background: black;
 	display: inline-block;
@@ -350,6 +351,7 @@ body .titulo{
 	margin-top: 2%;
 	width: 100px;
 }
+
 .seccion_enlaces .enlaces{
 	background: #1891ac;
 	margin-left: 5%;
@@ -374,63 +376,37 @@ body .form_articulos {
 	display: inline-block;
 }
 
-@font-face {
-  font-family: 'icomoon';
-  src:  url('../../fonts/icomoon.eot?9tgyuz');
-  src:  url('../../fonts/icomoon.eot?9tgyuz#iefix') format('embedded-opentype'),
-    url('../../fonts/icomoon.ttf?9tgyuz') format('truetype'),
-    url('../../fonts/icomoon.woff?9tgyuz') format('woff'),
-    url('../../fonts/icomoon.svg?9tgyuz#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-.icon-basura:before {
-	font-family: 'icomoon';
-	content: "\e9ad";
-	color: white;
-}
-
 .trash {
-	margin-top: 57px;
-	margin-right: 25%;
-	margin-left: 5%;
+	margin-top: 48px;
+	bottom: 10px;
+	margin-right: 20%;
+	margin-left: 10%;
 	display: inline-block;
-	width: 20px;
-	height: 20px;
 }
 
 .trash a{
 	text-decoration: none;
+	color: #7f7f7f;
 }
 
-.trash2 {
-	margin-top: 10px;
-	margin-right: 25%;
-	margin-left: 25%;
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-}
-
-.trash2 a{
+.trash a:hover{
 	text-decoration: none;
-}
-
-.icon-pencil2:before {
-	font-family: 'icomoon';
-	content: "\e905";
-	color: white;
+	color: #eee;
 }
 
 .pencil {
-	margin-left: -19%;
+	margin-left: -30%;
 	display: inline-block;
-	width: 20px;
-	height: 20px;
 }
+
 .pencil	 a{
 	text-decoration: none;
+	color: #7f7f7f;
+}
+
+.pencil	 a:hover{
+	text-decoration: none;
+	color: #eee;
 }
 
 .section_pictures_form{

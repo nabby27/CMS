@@ -70,7 +70,7 @@ echo "<html lang='en'>";
 				$contador=0;
 				$result=mysqli_query($link, "SELECT * from cms_users, cms_type_user where cms_users.id_type=cms_type_user.id_type");
 				echo "<table border=1>";
-				echo "<tr><td>".$S_user."</td><td>".$S_name."</td><td>".$S_surname."</td><td>".$S_email."</td><td>".$S_telephon."</td><td>".$S_address."</td><td>".$S_password."</td><td>".$S_type."</td><td>".$S_edit."</td><td>".$S_edit."</td></tr>";
+				echo "<tr><td>".$S_user."</td><td>".$S_name."</td><td>".$S_surname."</td><td>".$S_email."</td><td>".$S_telephon."</td><td>".$S_address."</td><td>".$S_password."</td><td>".$S_type."</td><td>".$S_edit."</td><td>".$S_delete."</td></tr>";
 				while($row=mysqli_fetch_assoc($result)){
 					$contador+=1;
 					if ($contador%2==0){
@@ -91,7 +91,7 @@ echo "<html lang='en'>";
 					echo "<td>";
 						echo "<div class='pencil2'>";
 							echo "<a width='0px' href='users.php?id_user=".$row['id_user']."'>";
-								echo "<div class='icon-pencil2'></div>";
+								echo "<i class='fa fa-pencil fa-2x' aria-hidden='true'></i>";
 							echo "</a>";
 						echo "</div>";
 					echo "</td>";
@@ -99,7 +99,7 @@ echo "<html lang='en'>";
 						if($row['id_type']!=1){
 							echo "<div class='trash2'>";
 								echo "<a width='0px' href='delete.php?id_user=".$row['id_user']."'>";
-									echo "<div class='icon-basura'></div>";
+									echo '<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>';
 								echo "</a>";
 							echo "</div>";
 						}
