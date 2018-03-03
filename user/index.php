@@ -12,7 +12,7 @@ else{
 			if (isset($_POST['send'])){
 				$user = $_POST['name'];
 				$password = $_POST['password'];
-				$cond = "SELECT id_user FROM cms_users where (id_user='$user' or email='$user') and password = $password";
+				$cond = "SELECT id_user FROM cms_users where (id_user='$user' or email='$user') and password = '$password'";
 				$result = mysqli_query($link, $cond);
 				if ($row = mysqli_fetch_assoc($result)){
 					$_SESSION['s_user']=$row['id_user'];
