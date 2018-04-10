@@ -72,18 +72,20 @@ echo "<html lang='en'>";
 						echo "</ul>";
 					echo "</nav>";
 					while ($row=mysqli_fetch_assoc($result)){
-						echo "<a href='categories.php?id_category_father=".$row['id_category']."'><div class='subcategories' class='boton'>";
-							echo $row['name'];
-						echo "</div></a>";
-						echo "<div class='trash'>";
-							echo "<a width='0px' href='delete.php?id_category=".$row['id_category']."'>";
-								echo '<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>';
-							echo "</a>";
-						echo "</div>";
-						echo "<div class='pencil'>";
-							echo "<a width='0px' href='categories.php?id_update_category=".$row['id_category']."'>";
-								echo "<i class='fa fa-pencil fa-2x' aria-hidden='true'></i>";
-							echo "</a>";
+						echo "<div class='section_subcategories'>";
+							echo "<a href='categories.php?id_category_father=".$row['id_category']."'><div class='subcategories' class='boton'>";
+								echo $row['name'];
+							echo "</div></a>";
+							echo "<div class='trash'>";
+								echo "<a width='0px' href='delete.php?id_category=".$row['id_category']."'>";
+									echo '<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>';
+								echo "</a>";
+							echo "</div>";
+							echo "<div class='pencil'>";
+								echo "<a width='0px' href='categories.php?id_update_category=".$row['id_category']."'>";
+									echo "<i class='fa fa-pencil fa-2x' aria-hidden='true'></i>";
+								echo "</a>";
+							echo "</div>";
 						echo "</div>";
 					}
 				}
@@ -98,18 +100,20 @@ echo "<html lang='en'>";
 					while ($row=mysqli_fetch_assoc($result)){
 						if ($row['id_category']!=0){
 							if($row['id_category_father']==0){
-								echo "<a href='categories.php?id_category_father=".$row['id_category']."'><div class='subcategories' class='boton'>";
-									echo $row['name'];
-								echo "</div></a>";
-								echo "<div class='trash'>";
-									echo "<a width='0px' href='delete.php?id_category=".$row['id_category']."'>";
-										echo '<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>';
-									echo "</a>";
-								echo "</div>";
-								echo "<div class='pencil'>";
-									echo "<a width='0px' href='categories.php?id_update_category=".$row['id_category']."'>";
-										echo "<i class='fa fa-pencil fa-2x' aria-hidden='true'></i>";
-									echo "</a>";
+								echo "<div class='section_subcategories'>";
+									echo "<a href='categories.php?id_category_father=".$row['id_category']."'><div class='subcategories' class='boton'>";
+										echo $row['name'];
+									echo "</div></a>";
+									echo "<div class='trash'>";
+										echo "<a width='0px' href='delete.php?id_category=".$row['id_category']."'>";
+											echo '<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>';
+										echo "</a>";
+									echo "</div>";
+									echo "<div class='pencil'>";
+										echo "<a width='0px' href='categories.php?id_update_category=".$row['id_category']."'>";
+											echo "<i class='fa fa-pencil fa-2x' aria-hidden='true'></i>";
+										echo "</a>";
+									echo "</div>";
 								echo "</div>";
 							}
 						}
