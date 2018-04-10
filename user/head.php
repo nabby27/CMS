@@ -1,7 +1,7 @@
 <?php
-include './database_connection.php';
-include './functions.php';
 include '../strings/strings_es.php';
+include './functions.php';
+include './database_connection.php';
 $id_show_company=1;
 echo '<head>';
 	echo '<meta charset="UTF-8">';
