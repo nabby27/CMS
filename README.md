@@ -1,15 +1,38 @@
 # CMS
+
 Generic Content Management System (CMS) with menu structure stored in database using HTML, CSS, PHP and MySQL
 
-     ----------------------------------------
-     |     STEPS TO TEST THE PROJECT        |
-     ----------------------------------------      
-     
-     1-Install wamp, xampp or mamp to have a local server
-     2-Copy the folder "CMS" to the workstation of the server that you have installed 
-	   (in wamp C:/wamp/www, in xampp C:/xampp/htdocs, in mamp C:/mamp/htdocs)
-     3-Enter in a browser the url "localhost" and enter in PhPMyAdmin
-     4-Copy the structure of the database in the SQL tab (the structure is in the database folder)
-     5-Enter the test data that are in the same folder, in the same way as with the structure
-     6-Enter the different pages (localhost / CMS) (localhost / CMS / Administrator)
-     7-User with privileges is pepito24 password 12345
+## Getting Started
+
+### Prerequisites
+
+* php5+
+* mysql
+* apache2
+
+or server like [xamp](https://www.apachefriends.org/es/index.html)
+
+### Installing
+
+First of all create the database with the script that is in the database folder, 
+then insert data example (use the script 'test_insertion.sql'). 
+Modify the db_connect file by putting your connection data to the database. 
+Finally, copy the files in your workplace on the server
+
+## Running
+
+Access to CMS app in the url of server. ex:
+
+```
+http://localhost
+```
+
+## Authors
+
+* **[Ivan Cordoba](https://github.com/nabby27)**
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE](LICENSE) file for details
+
+
