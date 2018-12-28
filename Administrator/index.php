@@ -10,8 +10,8 @@ else{
 		echo "<body>";
 			include 'header.php';
 			if (isset($_REQUEST['send'])){
-				$user=$_REQUEST['name'];
-				$password=$_REQUEST['password'];
+				$user=mysqli_real_escape_string($_REQUEST['name']);
+				$password=mysqli_real_escape_string($_REQUEST['password']);
 				$result = mysqli_query($link, "SELECT * FROM cms_users where (id_user='$user' or email='$user') and password='$password' and id_type=1");
 				if ($row = mysqli_fetch_assoc($result)){
 					$_SESSION['s_admin']=$row['name'];
