@@ -23,7 +23,7 @@ echo "<html lang='en'>";
 				else{
 					echo "<div class='login_form'>";
 						echo $S_password_does_not_match."<br>";
-						echo "<a href='users.php?id_user='".$id_user."''>".$S_back."</a>";
+						echo "<a href='users.php?id_user='".htmlspecialchars($id_user)."''>".$S_back."</a>";
 					echo "</div>";
 				}
 			}

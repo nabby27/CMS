@@ -6,7 +6,7 @@ echo "<html lang='en'>";
 	echo "<body>";
 		include 'header.php';
 		if (isset($_SESSION['s_admin'])){
-			$id_article=$_REQUEST['id_article'];
+			$id_article=htmlspecialchars(mysqli_real_escape_string($_REQUEST['id_article']));
 			$result=mysqli_query($link, "SELECT name from cms_article where id_article=$id_article");
 			$row=mysqli_fetch_assoc($result);
 			echo "<div class='section_name'>".$row['name']."</div>";
@@ -16,7 +16,7 @@ echo "<html lang='en'>";
 				echo "</ul>";
 			echo "</nav>";
 			if(isset($_REQUEST['send'])){
-				$id_article=$_REQUEST['id_article'];
+				$id_article=htmlspecialchars($_REQUEST['id_article']);
 				$id_picture=$_REQUEST['id_picture'];
 				$description=$_REQUEST['description'];
 				if (is_uploaded_file ($_FILES['picture']['tmp_name'])){
